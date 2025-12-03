@@ -53,18 +53,30 @@
           />
         </div>
 
-        <button type="submit" class="submit-btn">Submit Request</button>
+        <button type="submit" class="submit-btn" :disabled="loading">
+          <span v-if="loading">Sending...</span>
+          <span v-else>Submit Request</span>
+        </button>
       </form>
 
       <div v-if="submitted" class="success-message">
         <p>✓ Thank you! We'll contact you soon with your pricing.</p>
+      </div>
+
+      <div v-if="error" class="error-message">
+        <p>⚠ There was an error submitting your request. Please try again or contact us directly.</p>
+      </div>
+
+      <div v-if="loading" class="loading-message">
+        <p>⏳ Sending your request...</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
+import { emailjsConfig } from '../config/emailjs.js'
 
 const props = defineProps({
   isOpen: {
@@ -83,6 +95,30 @@ const form = ref({
 })
 
 const submitted = ref(false)
+const loading = ref(false)
+const error = ref(false)
+let emailjs = null
+
+// Load EmailJS from CDN
+onMounted(async () => {
+  if (!window.emailjs) {
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js'
+    script.onload = () => {
+      emailjs = window.emailjs
+      // Initialize EmailJS with your public key
+      if (emailjsConfig.publicKey && emailjsConfig.publicKey !== 'YOUR_PUBLIC_KEY') {
+        emailjs.init(emailjsConfig.publicKey)
+      }
+    }
+    document.head.appendChild(script)
+  } else {
+    emailjs = window.emailjs
+    if (emailjsConfig.publicKey && emailjsConfig.publicKey !== 'YOUR_PUBLIC_KEY') {
+      emailjs.init(emailjsConfig.publicKey)
+    }
+  }
+})
 
 const closeModal = () => {
   emit('close')
@@ -95,19 +131,63 @@ const closeModal = () => {
       phone: ''
     }
     submitted.value = false
+    error.value = false
+    loading.value = false
   }, 300)
 }
 
-const handleSubmit = () => {
-  // Here you would typically send the data to a backend API
-  console.log('Form submitted:', form.value)
-  submitted.value = true
+const handleSubmit = async () => {
+  loading.value = true
+  error.value = false
   
-  // In a real application, you would send this data to your backend
-  // For now, we'll just show a success message
-  setTimeout(() => {
-    closeModal()
-  }, 2000)
+  try {
+    // Wait for EmailJS to load if not already loaded
+    if (!emailjs && window.emailjs) {
+      emailjs = window.emailjs
+    }
+    
+    if (!emailjs) {
+      throw new Error('EmailJS not loaded yet')
+    }
+
+    // Check if EmailJS is configured
+    if (emailjsConfig.serviceId === 'YOUR_SERVICE_ID' || 
+        emailjsConfig.templateId === 'YOUR_TEMPLATE_ID' ||
+        emailjsConfig.publicKey === 'YOUR_PUBLIC_KEY') {
+      throw new Error('EmailJS not configured. Please set up your EmailJS credentials in src/config/emailjs.js')
+    }
+
+    // Send email using EmailJS
+    await emailjs.send(
+      emailjsConfig.serviceId,
+      emailjsConfig.templateId,
+      {
+        to_email: emailjsConfig.toEmail,
+        panels: form.value.panels,
+        stories: form.value.stories,
+        address: form.value.address,
+        phone: form.value.phone,
+        message: `New Pricing Request:
+        
+Number of Panels: ${form.value.panels}
+Number of Stories: ${form.value.stories}
+Property Address: ${form.value.address}
+Phone Number: ${form.value.phone}`
+      }
+    )
+    
+    submitted.value = true
+    loading.value = false
+    
+    // Close modal after 2 seconds
+    setTimeout(() => {
+      closeModal()
+    }, 2000)
+  } catch (err) {
+    console.error('Error sending email:', err)
+    error.value = true
+    loading.value = false
+  }
 }
 
 // Close on Escape key
@@ -259,6 +339,42 @@ const handleEscape = (e) => {
 
 .submit-btn:active {
   transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  color: #721c24;
+  text-align: center;
+}
+
+.error-message p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.loading-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #d1ecf1;
+  border: 1px solid #bee5eb;
+  border-radius: 6px;
+  color: #0c5460;
+  text-align: center;
+}
+
+.loading-message p {
+  margin: 0;
+  font-weight: 500;
 }
 
 .success-message {
