@@ -157,6 +157,7 @@
 
 .partnerships-content {
   padding: 4rem 0;
+  background: var(--bg-dark);
 }
 
 .partnership-intro {
@@ -166,7 +167,7 @@
 }
 
 .partnership-intro h2 {
-  color: var(--secondary-color);
+  color: var(--white);
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
@@ -184,10 +185,11 @@
   gap: 3rem;
   align-items: center;
   margin-bottom: 4rem;
-  background: var(--white);
+  background: var(--bg-light);
   padding: 2rem;
   border-radius: 12px;
   box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .system-image {
@@ -213,7 +215,7 @@
 }
 
 .system-description h3 {
-  color: var(--secondary-color);
+  color: var(--white);
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
@@ -230,7 +232,7 @@
 
 .how-it-works h2 {
   text-align: center;
-  color: var(--secondary-color);
+  color: var(--white);
   font-size: 2.5rem;
   margin-bottom: 3rem;
   font-weight: 700;
@@ -243,12 +245,13 @@
 }
 
 .step-card {
-  background: var(--white);
+  background: var(--bg-light);
   padding: 2rem;
   border-radius: 12px;
   box-shadow: var(--shadow);
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .step-card:hover {
@@ -271,7 +274,7 @@
 }
 
 .step-card h3 {
-  color: var(--secondary-color);
+  color: var(--white);
   margin-bottom: 1rem;
   font-size: 1.25rem;
 }
@@ -287,7 +290,7 @@
 
 .benefits-section h2 {
   text-align: center;
-  color: var(--secondary-color);
+  color: var(--white);
   font-size: 2.5rem;
   margin-bottom: 3rem;
   font-weight: 700;
@@ -319,7 +322,7 @@
 }
 
 .benefit-card h3 {
-  color: var(--secondary-color);
+  color: var(--white);
   margin-bottom: 0.75rem;
   font-size: 1.25rem;
 }
@@ -335,17 +338,18 @@
   background: var(--bg-light);
   padding: 2.5rem;
   border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .partnership-details h2 {
-  color: var(--secondary-color);
+  color: var(--white);
   font-size: 2rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
 }
 
 .partnership-details p {
-  color: var(--text-dark);
+  color: var(--text-light);
   line-height: 1.8;
   margin-bottom: 1rem;
   font-size: 1.05rem;

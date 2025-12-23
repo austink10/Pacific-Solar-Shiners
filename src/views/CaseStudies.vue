@@ -170,6 +170,7 @@ const caseStudies = [
 
 .case-studies-content {
   padding: 4rem 0;
+  background: var(--bg-dark);
 }
 
 .intro-text {
@@ -192,10 +193,11 @@ const caseStudies = [
 }
 
 .case-study-card {
-  background: var(--white);
+  background: var(--bg-light);
   border-radius: 12px;
   padding: 2rem;
   box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .case-study-header {
@@ -204,18 +206,18 @@ const caseStudies = [
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid var(--bg-light);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .case-study-header h3 {
-  color: var(--secondary-color);
+  color: var(--white);
   font-size: 1.75rem;
   margin: 0;
 }
 
 .case-type {
   background: var(--primary-color);
-  color: var(--white);
+  color: var(--bg-dark);
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-size: 0.85rem;
@@ -233,19 +235,19 @@ const caseStudies = [
 }
 
 .bill-card {
-  background: var(--bg-light);
+  background: var(--bg-dark);
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
 }
 
 .bill-card.before {
-  border: 2px solid #dee2e6;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .bill-card.after {
   border: 2px solid var(--primary-color);
-  background: linear-gradient(135deg, #fff5f0 0%, #ffe8dc 100%);
+  background: rgba(255, 191, 0, 0.1);
 }
 
 .bill-label {
@@ -260,7 +262,7 @@ const caseStudies = [
 .bill-amount {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--white);
   margin-bottom: 0.25rem;
 }
 
@@ -278,13 +280,13 @@ const caseStudies = [
   text-align: left;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .bill-details p {
   margin: 0.5rem 0;
   font-size: 0.9rem;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .arrow {
@@ -299,8 +301,9 @@ const caseStudies = [
   gap: 1rem;
   margin-bottom: 1.5rem;
   padding: 1.5rem;
-  background: var(--bg-light);
+  background: var(--bg-dark);
   border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .savings-item {
@@ -311,7 +314,7 @@ const caseStudies = [
 }
 
 .savings-item strong {
-  color: var(--text-dark);
+  color: var(--white);
   font-size: 0.9rem;
 }
 
@@ -323,7 +326,7 @@ const caseStudies = [
 
 .case-study-description {
   padding-top: 1.5rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .case-study-description p {

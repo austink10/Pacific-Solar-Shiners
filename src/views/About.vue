@@ -103,6 +103,7 @@
 
 .about-content {
   padding: 4rem 0;
+  background: var(--bg-dark);
 }
 
 .content-section {
@@ -113,14 +114,14 @@
 }
 
 .content-section h2 {
-  color: var(--secondary-color);
+  color: var(--white);
   font-size: 2rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
 }
 
 .content-section p {
-  color: var(--text-dark);
+  color: var(--text-light);
   line-height: 1.8;
   margin-bottom: 1rem;
   font-size: 1.05rem;
@@ -138,10 +139,12 @@
   border-radius: 8px;
   border-left: 4px solid var(--primary-color);
   line-height: 1.8;
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .features-list li strong {
-  color: var(--secondary-color);
+  color: var(--white);
   display: block;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;

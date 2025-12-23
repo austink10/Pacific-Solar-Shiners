@@ -170,6 +170,7 @@ const filteredProjects = computed(() => {
 
 .projects-content {
   padding: 4rem 0;
+  background: var(--bg-dark);
 }
 
 .filter-tabs {
@@ -183,7 +184,7 @@ const filteredProjects = computed(() => {
 .filter-tab {
   padding: 0.75rem 1.5rem;
   border: 2px solid var(--primary-color);
-  background: var(--white);
+  background: var(--bg-light);
   color: var(--primary-color);
   border-radius: 8px;
   cursor: pointer;
@@ -192,12 +193,12 @@ const filteredProjects = computed(() => {
 }
 
 .filter-tab:hover {
-  background: var(--bg-light);
+  background: rgba(255, 191, 0, 0.1);
 }
 
 .filter-tab.active {
   background: var(--primary-color);
-  color: var(--white);
+  color: var(--bg-dark);
 }
 
 .projects-grid {
@@ -221,7 +222,7 @@ const filteredProjects = computed(() => {
 
 .project-images {
   width: 100%;
-  background: var(--bg-light);
+  background: var(--bg-dark);
 }
 
 .image-comparison {
@@ -263,7 +264,7 @@ const filteredProjects = computed(() => {
 }
 
 .project-info h3 {
-  color: var(--secondary-color);
+  color: var(--white);
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
 }
@@ -287,7 +288,7 @@ const filteredProjects = computed(() => {
   display: flex;
   gap: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stat {
@@ -296,7 +297,7 @@ const filteredProjects = computed(() => {
 }
 
 .stat strong {
-  color: var(--secondary-color);
+  color: var(--white);
   font-size: 1.5rem;
   font-weight: 700;
 }

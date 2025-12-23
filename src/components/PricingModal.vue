@@ -231,7 +231,7 @@ const handleEscape = (e) => {
 }
 
 .modal-content {
-  background: var(--white);
+  background: var(--bg-light);
   border-radius: 12px;
   padding: 2rem;
   max-width: 500px;
@@ -240,6 +240,7 @@ const handleEscape = (e) => {
   overflow-y: auto;
   position: relative;
   animation: slideUp 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 @keyframes slideUp {
@@ -273,11 +274,11 @@ const handleEscape = (e) => {
 }
 
 .modal-close:hover {
-  color: var(--text-dark);
+  color: var(--white);
 }
 
 .modal-content h2 {
-  color: var(--secondary-color);
+  color: var(--white);
   margin-bottom: 0.5rem;
   font-size: 1.75rem;
 }
@@ -302,16 +303,22 @@ const handleEscape = (e) => {
 
 .form-group label {
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--white);
   font-size: 0.9rem;
 }
 
 .form-group input {
   padding: 0.75rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.3s;
+  background: var(--bg-dark);
+  color: var(--white);
+}
+
+.form-group input::placeholder {
+  color: var(--text-light);
 }
 
 .form-group input:focus {
@@ -321,7 +328,7 @@ const handleEscape = (e) => {
 
 .submit-btn {
   background: var(--primary-color);
-  color: var(--white);
+  color: var(--bg-dark);
   border: none;
   padding: 0.875rem 1.5rem;
   border-radius: 6px;
@@ -333,7 +340,7 @@ const handleEscape = (e) => {
 }
 
 .submit-btn:hover {
-  background: #e55a2b;
+  background: #FFD700;
   transform: translateY(-2px);
 }
 

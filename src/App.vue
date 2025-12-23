@@ -63,20 +63,22 @@ const closeMobileMenu = () => {
 }
 
 :root {
-  --primary-color: #FF6B35;
-  --secondary-color: #004E89;
-  --accent-color: #1A659E;
-  --text-dark: #2C3E50;
-  --text-light: #7F8C8D;
-  --bg-light: #F8F9FA;
+  --primary-color: #FFBF00;
+  --secondary-color: #0090FF;
+  --accent-color: #004F9F;
+  --text-dark: #FFFFFF;
+  --text-light: #CCCCCC;
+  --bg-light: #1A1A1A;
+  --bg-dark: #000000;
   --white: #FFFFFF;
-  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.7);
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   color: var(--text-dark);
+  background-color: var(--bg-dark);
   line-height: 1.6;
 }
 
@@ -84,6 +86,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-dark);
 }
 
 .container {
@@ -94,11 +97,12 @@ body {
 
 /* Header */
 .header {
-  background: var(--white);
+  background: var(--bg-dark);
   box-shadow: var(--shadow);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header-content {
@@ -110,7 +114,7 @@ body {
 
 .logo {
   text-decoration: none;
-  color: var(--secondary-color);
+  color: var(--white);
 }
 
 .logo h1 {
@@ -125,7 +129,7 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: var(--text-dark);
+  color: var(--white);
   font-weight: 500;
   transition: color 0.3s;
   position: relative;
@@ -162,7 +166,7 @@ body {
 .mobile-menu-toggle span {
   width: 25px;
   height: 3px;
-  background: var(--text-dark);
+  background: var(--white);
   transition: all 0.3s;
 }
 
@@ -171,7 +175,7 @@ body {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-nav.is-open {
@@ -185,10 +189,11 @@ body {
 
 /* Footer */
 .footer {
-  background: var(--text-dark);
+  background: var(--bg-dark);
   color: var(--white);
   padding: 2rem 0;
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 768px) {

@@ -72,6 +72,30 @@ export const emailjsConfig = {
 3. Fill out the form and submit
 4. Check your email at `austinkirby@pacificsolarshiners.com` for the submission
 
+## Post-Domain Transfer Checklist
+
+After transferring `pacificsolarshiners.com` to your new hosting provider:
+
+1. **Update EmailJS Allowed Domains**
+   - Go to EmailJS dashboard → **Account** → **Security**
+   - Add `pacificsolarshiners.com` to the allowed domains list
+   - Also add `www.pacificsolarshiners.com` if you use the www subdomain
+   - This prevents CORS errors when the form submits
+
+2. **Verify DNS Settings**
+   - Ensure your domain's DNS records are properly configured
+   - Point your domain to your hosting provider's servers
+   - Allow 24-48 hours for DNS propagation
+
+3. **Test Email Functionality**
+   - Once the domain is live, test the pricing form
+   - Verify emails are being received at `austinkirby@pacificsolarshiners.com`
+   - Check EmailJS dashboard for any error logs
+
+4. **SSL Certificate**
+   - Ensure your hosting provider has SSL/HTTPS enabled
+   - EmailJS requires HTTPS for production domains
+
 ## Troubleshooting
 
 - **"EmailJS not configured" error**: Make sure you've replaced all placeholder values in `src/config/emailjs.js`

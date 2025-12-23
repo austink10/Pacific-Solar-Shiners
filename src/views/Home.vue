@@ -122,7 +122,7 @@ const closePricingModal = () => {
 
 .cta-button {
   background: var(--primary-color);
-  color: var(--white);
+  color: var(--bg-dark);
   border: none;
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
@@ -130,13 +130,13 @@ const closePricingModal = () => {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 191, 0, 0.4);
 }
 
 .cta-button:hover {
-  background: #e55a2b;
+  background: #FFD700;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 191, 0, 0.5);
 }
 
 .cta-button:active {
@@ -145,13 +145,13 @@ const closePricingModal = () => {
 
 .features {
   padding: 5rem 0;
-  background: var(--bg-light);
+  background: var(--bg-dark);
 }
 
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  color: var(--secondary-color);
+  color: var(--white);
   margin-bottom: 3rem;
   font-weight: 700;
 }
@@ -163,12 +163,13 @@ const closePricingModal = () => {
 }
 
 .feature-card {
-  background: var(--white);
+  background: var(--bg-light);
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
   box-shadow: var(--shadow);
   transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .feature-card:hover {
@@ -182,7 +183,7 @@ const closePricingModal = () => {
 }
 
 .feature-card h3 {
-  color: var(--secondary-color);
+  color: var(--white);
   margin-bottom: 0.75rem;
   font-size: 1.25rem;
 }
@@ -194,6 +195,7 @@ const closePricingModal = () => {
 
 .services {
   padding: 5rem 0;
+  background: var(--bg-dark);
 }
 
 .services-content {
@@ -204,14 +206,16 @@ const closePricingModal = () => {
 
 .service-item {
   padding: 2rem;
-  background: var(--white);
+  background: var(--bg-light);
   border-radius: 12px;
   box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 4px solid var(--primary-color);
 }
 
 .service-item h3 {
-  color: var(--secondary-color);
+  color: var(--white);
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
