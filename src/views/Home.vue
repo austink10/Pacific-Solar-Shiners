@@ -1,6 +1,22 @@
 <template>
   <div class="home">
-    <section class="hero">
+    <section class="hero" ref="heroSection">
+      <div class="hero-slideshow" :class="{ paused: !isHeroVisible }">
+        <div class="slideshow-track">
+          <div 
+            v-for="(image, index) in [...slideshowImages, ...slideshowImages]" 
+            :key="`slide-${index}`"
+            class="slide"
+          >
+            <img 
+              :src="image" 
+              :alt="`Slide ${(index % slideshowImages.length) + 1}`"
+              @error="handleImageError"
+            />
+          </div>
+        </div>
+        <div class="hero-overlay"></div>
+      </div>
       <div class="container">
         <div class="hero-content">
           <h1 class="hero-title">Pacific Solar Shiners</h1>
@@ -67,10 +83,22 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import PricingModal from '../components/PricingModal.vue'
 
 const isPricingModalOpen = ref(false)
+const heroSection = ref(null)
+const isHeroVisible = ref(true)
+const observer = ref(null)
+
+// Placeholder image paths - replace these with your actual image paths
+// Images should be placed in the public folder: public/images/hero-slideshow/
+const slideshowImages = ref([
+  '/images/hero-slideshow/slide1.jpg',
+  '/images/hero-slideshow/slide2.jpg',
+  '/images/hero-slideshow/slide3.jpg',
+  '/images/hero-slideshow/slide4.jpg'
+])
 
 const openPricingModal = () => {
   isPricingModalOpen.value = true
@@ -81,6 +109,34 @@ const closePricingModal = () => {
   isPricingModalOpen.value = false
   document.body.style.overflow = ''
 }
+
+const handleImageError = (event) => {
+  // Fallback to a placeholder if image fails to load
+  event.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"%3E%3Crect fill="%23000000" width="1920" height="1080"/%3E%3Ctext fill="%23ffffff" font-family="Arial" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3EImage Placeholder%3C/text%3E%3C/svg%3E'
+}
+
+// Intersection Observer to detect when hero section is in view
+onMounted(() => {
+  if (heroSection.value) {
+    observer.value = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isHeroVisible.value = entry.isIntersecting
+        })
+      },
+      {
+        threshold: 0.1 // Trigger when 10% of hero is visible
+      }
+    )
+    observer.value.observe(heroSection.value)
+  }
+})
+
+onUnmounted(() => {
+  if (observer.value) {
+    observer.value.disconnect()
+  }
+})
 </script>
 
 <style scoped>
@@ -89,13 +145,75 @@ const closePricingModal = () => {
 }
 
 .hero {
-  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+  position: relative;
   color: var(--white);
   padding: 6rem 0;
   text-align: center;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.slideshow-track {
+  display: flex;
+  width: fit-content;
+  height: 100%;
+  animation: scroll 60s linear infinite;
+  will-change: transform;
+}
+
+.hero-slideshow.paused .slideshow-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.slide {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 79, 159, 0.5) 100%);
+  z-index: 1;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -228,6 +346,7 @@ const closePricingModal = () => {
 @media (max-width: 768px) {
   .hero {
     padding: 4rem 0;
+    min-height: 500px;
   }
 
   .hero-title {
@@ -249,6 +368,12 @@ const closePricingModal = () => {
   .features,
   .services {
     padding: 3rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 400px;
   }
 }
 </style>
