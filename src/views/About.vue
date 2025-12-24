@@ -58,15 +58,6 @@
           </ul>
         </div>
 
-        <div class="content-section">
-          <h2>Our Commitment</h2>
-          <p>
-            We are committed to providing exceptional service that helps you get the most 
-            out of your solar investment. Every cleaning is performed with attention to detail 
-            and a focus on maximizing your energy savings. When you choose Pacific Solar Shiners, 
-            you're choosing a partner dedicated to your success and the success of renewable energy.
-          </p>
-        </div>
       </div>
     </section>
   </div>
