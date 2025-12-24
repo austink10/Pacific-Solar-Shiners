@@ -20,18 +20,15 @@
         </div>
 
         <div class="content-section">
-          <h2>Who We Are</h2>
+          <h2>Why Us</h2>
           <p>
-            Founded with a passion for renewable energy and environmental sustainability, 
-            Pacific Solar Shiners has been serving the Pacific region for years. Our team 
-            consists of trained professionals who understand the importance of proper solar 
-            panel maintenance.
+            Before starting Pacific Solar Shiners, I trained and worked directly with some of the highest-rated solar panel cleaning companies in the San Diego area. This hands-on experience gave me a clear understanding of both how solar panels should be cleaned and where much of the industry falls short.
           </p>
           <p>
-            We use industry-leading techniques and eco-friendly cleaning solutions to ensure 
-            your panels are not only clean but also protected from damage. Our commitment 
-            to excellence has made us a trusted partner for both residential and commercial 
-            solar installations.
+            I noticed two consistent problems. First, many companies priced their services so high that homeowners saw little to no real return, as the cost of cleaning often outweighed the additional energy savings. Second, solar panel cleaning was frequently treated as an add-on service—bundled with window cleaning or pressure washing—rather than a specialized process. As a result, panels were often cleaned quickly and improperly using the wrong equipment.
+          </p>
+          <p>
+            I started this company to address those issues. My focus is simple: provide specialized, detail-driven solar panel cleaning at a fair price, ensuring your system performs efficiently while protecting your long-term investment.
           </p>
         </div>
 
