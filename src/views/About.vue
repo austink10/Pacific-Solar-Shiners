@@ -12,7 +12,7 @@
         <div class="content-section">
           <h2>Our Mission</h2>
           <p>
-            Pacific Solar Shiners was founded and is operated by a recent graduate of San Diego State University with firsthand experience in the solar industry. After working with a nine-figure national solar brokerage that partnered with leading solar companies, manufacturers, EPCs, and installers, one issue became consistently clear: most homeowners and businesses were not properly maintaining the cleanliness of their solar panels—or fully understanding the impact of neglecting them.
+            Pacific Solar Shiners is founded and operated by a recent graduate of San Diego State University with firsthand experience in the solar industry. After working with a nine-figure national solar brokerage that partnered with leading solar companies, manufacturers, EPCs, and installers, one issue became consistently clear: most homeowners and businesses were not properly maintaining the cleanliness of their solar panels—or fully understanding the impact of neglecting them.
           </p>
           <p>
             When dust, dirt, soot, pollen, and other airborne particles accumulate on a solar array, a layer of buildup known as soiling forms. This buildup blocks sunlight from reaching the panels, reducing efficiency, lowering energy production, and ultimately increasing energy costs. Over time, neglected panels may also suffer permanent damage, while prolonged moisture and moss buildup can contribute to roof deterioration. Pacific Solar Shiners was created to solve this problem and help customers protect their investment while maximizing performance.
