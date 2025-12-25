@@ -5,7 +5,7 @@
         <PartnershipFeature
           title="RST CleanTech"
           :text="rstCleanTechText"
-          :image-src="null"
+          :image-src="'/images/partnerships/rst-system.jpg'"
           :logo-src="'/images/logos/rst-cleantech-logo.png'"
           :show-logo-placeholder="false"
           link-text="For more information, please visit rst-cleantech.com"
