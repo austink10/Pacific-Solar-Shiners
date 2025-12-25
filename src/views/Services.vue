@@ -95,7 +95,7 @@ onUnmounted(() => {
 
 .service-section {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 65vh;
   position: relative;
   display: flex;
   align-items: center;
@@ -170,7 +170,7 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .service-section {
-    min-height: 80vh;
+    min-height: 60vh;
   }
 
   .service-content {
