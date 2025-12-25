@@ -168,6 +168,7 @@ onUnmounted(() => {
   height: 100%;
   z-index: 0;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .slideshow-track {
@@ -214,6 +215,7 @@ onUnmounted(() => {
   height: 100%;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 79, 159, 0.5) 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -221,6 +223,7 @@ onUnmounted(() => {
   z-index: 2;
   max-width: 800px;
   margin: 0 auto;
+  pointer-events: auto;
 }
 
 .hero-title {
