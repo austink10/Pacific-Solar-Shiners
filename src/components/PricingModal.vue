@@ -7,6 +7,17 @@
       
       <form @submit.prevent="handleSubmit" class="pricing-form">
         <div class="form-group">
+          <label for="name">Name *</label>
+          <input
+            type="text"
+            id="name"
+            v-model="form.name"
+            required
+            placeholder="Your full name"
+          />
+        </div>
+
+        <div class="form-group">
           <label for="panels">Number of Panels *</label>
           <input
             type="number"
@@ -53,7 +64,7 @@
           />
         </div>
 
-        <button type="submit" class="submit-btn" :disabled="loading">
+        <button type="submit" class="submit-btn" :disabled="loading || !isFormValid">
           <span v-if="loading">Sending...</span>
           <span v-else>Submit Request</span>
         </button>
@@ -75,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, computed } from 'vue'
 import { emailjsConfig } from '../config/emailjs.js'
 
 const props = defineProps({
@@ -88,6 +99,7 @@ const props = defineProps({
 const emit = defineEmits(['close'])
 
 const form = ref({
+  name: '',
   panels: '',
   stories: '',
   address: '',
@@ -99,6 +111,15 @@ const loading = ref(false)
 const error = ref(false)
 let emailjs = null
 let emailjsLoaded = ref(false)
+
+// Computed property to check if all required fields are filled
+const isFormValid = computed(() => {
+  return form.value.name.trim() !== '' &&
+         form.value.panels !== '' &&
+         form.value.stories !== '' &&
+         form.value.address.trim() !== '' &&
+         form.value.phone.trim() !== ''
+})
 
 // Function to ensure EmailJS is loaded and initialized
 const ensureEmailJSReady = () => {
@@ -167,6 +188,7 @@ const closeModal = () => {
   // Reset form after animation
   setTimeout(() => {
     form.value = {
+      name: '',
       panels: '',
       stories: '',
       address: '',
@@ -182,6 +204,12 @@ const handleSubmit = async (e) => {
   // Prevent default form submission
   if (e) {
     e.preventDefault()
+  }
+  
+  // Validate all required fields are filled
+  if (!isFormValid.value) {
+    error.value = true
+    return
   }
   
   loading.value = true
@@ -209,12 +237,14 @@ const handleSubmit = async (e) => {
       emailjsConfig.templateId,
       {
         to_email: emailjsConfig.toEmail,
+        name: form.value.name,
         panels: form.value.panels,
         stories: form.value.stories,
         address: form.value.address,
         phone: form.value.phone,
         message: `New Pricing Request:
         
+Name: ${form.value.name}
 Number of Panels: ${form.value.panels}
 Number of Stories: ${form.value.stories}
 Property Address: ${form.value.address}
@@ -389,6 +419,12 @@ const handleEscape = (e) => {
 .submit-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
+  background: #666;
+}
+
+.submit-btn:disabled:hover {
+  background: #666;
   transform: none;
 }
 
