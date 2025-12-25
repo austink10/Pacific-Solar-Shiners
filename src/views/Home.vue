@@ -12,6 +12,7 @@
               :src="image" 
               :alt="`Slide ${(index % slideshowImages.length) + 1}`"
               @error="handleImageError"
+              loading="lazy"
             />
           </div>
         </div>
@@ -115,8 +116,8 @@ const closePricingModal = () => {
 }
 
 const handleImageError = (event) => {
-  // Fallback to a placeholder if image fails to load
-  event.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"%3E%3Crect fill="%23000000" width="1920" height="1080"/%3E%3Ctext fill="%23ffffff" font-family="Arial" font-size="24" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3EImage Placeholder%3C/text%3E%3C/svg%3E'
+  // Hide the image if it fails to load
+  event.target.style.display = 'none'
 }
 
 // Intersection Observer to detect when hero section is in view
