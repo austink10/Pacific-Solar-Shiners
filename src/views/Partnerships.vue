@@ -1,12 +1,5 @@
 <template>
   <div class="partnerships">
-    <section class="partnerships-hero">
-      <div class="container">
-        <h1>Partnerships</h1>
-        <p class="hero-subtitle">Working with industry leaders</p>
-      </div>
-    </section>
-
     <section class="partnerships-content">
       <div class="container">
         <div class="partnership-intro">
