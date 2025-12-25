@@ -9,6 +9,7 @@
           <nav class="nav">
             <router-link to="/" class="nav-link">Home</router-link>
             <router-link to="/about" class="nav-link">About</router-link>
+            <router-link to="/services" class="nav-link">Services</router-link>
             <router-link to="/projects" class="nav-link">Projects</router-link>
             <router-link to="/case-studies" class="nav-link">Case Studies</router-link>
             <router-link to="/partnerships" class="nav-link">Partnerships</router-link>
@@ -22,6 +23,7 @@
         <nav class="mobile-nav" :class="{ 'is-open': isMobileMenuOpen }">
           <router-link to="/" class="nav-link" @click="closeMobileMenu">Home</router-link>
           <router-link to="/about" class="nav-link" @click="closeMobileMenu">About</router-link>
+          <router-link to="/services" class="nav-link" @click="closeMobileMenu">Services</router-link>
           <router-link to="/projects" class="nav-link" @click="closeMobileMenu">Projects</router-link>
           <router-link to="/case-studies" class="nav-link" @click="closeMobileMenu">Case Studies</router-link>
           <router-link to="/partnerships" class="nav-link" @click="closeMobileMenu">Partnerships</router-link>
