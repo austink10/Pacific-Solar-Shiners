@@ -31,3 +31,5 @@ const slideshowImages = ref([
 - The slideshow will pause when you scroll past the hero section
 - Images will maintain their aspect ratio and cover the entire hero area
 - A dark overlay ensures text remains readable over images
+
+

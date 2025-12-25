@@ -91,13 +91,17 @@ const heroSection = ref(null)
 const isHeroVisible = ref(true)
 const observer = ref(null)
 
-// Placeholder image paths - replace these with your actual image paths
-// Images should be placed in the public folder: public/images/hero-slideshow/
+// Images from /images/hero-slideshow/ directory
 const slideshowImages = ref([
   '/images/hero-slideshow/slide1.jpg',
   '/images/hero-slideshow/slide2.jpg',
   '/images/hero-slideshow/slide3.jpg',
-  '/images/hero-slideshow/slide4.jpg'
+  '/images/hero-slideshow/slide4.jpg',
+  '/images/hero-slideshow/slide5.jpg',
+  '/images/hero-slideshow/slide6.jpg',
+  '/images/hero-slideshow/slide7.jpg',
+  '/images/hero-slideshow/slide8.jpg',
+  '/images/hero-slideshow/slide9.jpg'
 ])
 
 const openPricingModal = () => {
@@ -169,7 +173,7 @@ onUnmounted(() => {
   display: flex;
   width: fit-content;
   height: 100%;
-  animation: scroll 60s linear infinite;
+  animation: scroll 90s linear infinite;
   will-change: transform;
 }
 
