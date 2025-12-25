@@ -6,7 +6,8 @@
           title="RST CleanTech"
           :text="rstCleanTechText"
           :image-src="null"
-          :show-logo-placeholder="true"
+          :logo-src="'/images/logos/rst-cleantech-logo.png'"
+          :show-logo-placeholder="false"
         />
 
         <div class="how-it-works">

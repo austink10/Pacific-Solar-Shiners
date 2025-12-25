@@ -5,7 +5,10 @@
         <div class="text-column">
           <div class="title-section">
             <h2 class="section-title">{{ title }}</h2>
-            <div class="logo-placeholder" v-if="showLogoPlaceholder">
+            <div v-if="logoSrc" class="logo-container">
+              <img :src="logoSrc" :alt="title + ' logo'" class="logo-image" />
+            </div>
+            <div class="logo-placeholder" v-else-if="showLogoPlaceholder">
               <!-- Logo will be added here later -->
             </div>
           </div>
@@ -33,6 +36,10 @@ defineProps({
     required: true
   },
   imageSrc: {
+    type: String,
+    default: null
+  },
+  logoSrc: {
     type: String,
     default: null
   },
@@ -101,6 +108,26 @@ defineProps({
   color: var(--text-light);
   font-size: 0.75rem;
   opacity: 0.5;
+}
+
+.logo-container {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  max-height: 50px;
+  background: transparent;
+}
+
+.logo-image {
+  max-width: 180px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+  /* Remove white background - works best if logo has transparent background */
+  /* If logo has white background, consider using a PNG with transparency */
+  mix-blend-mode: normal;
 }
 
 .body-text {
