@@ -8,6 +8,9 @@
           :image-src="null"
           :logo-src="'/images/logos/rst-cleantech-logo.png'"
           :show-logo-placeholder="false"
+          link-text="For more information, please visit rst-cleantech.com"
+          link-url="https://rst-cleantech.com"
+          link-target="_blank"
         />
 
         <div class="how-it-works">

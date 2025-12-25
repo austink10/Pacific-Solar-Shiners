@@ -12,7 +12,11 @@
               <!-- Logo will be added here later -->
             </div>
           </div>
-          <p class="body-text">{{ text }}</p>
+          <p class="body-text">
+            {{ text }}
+            <br v-if="linkUrl" />
+            <a v-if="linkUrl" :href="linkUrl" :target="linkTarget" class="info-link">{{ linkText }}</a>
+          </p>
         </div>
         <div class="image-column">
           <div class="image-placeholder">
@@ -46,6 +50,18 @@ defineProps({
   showLogoPlaceholder: {
     type: Boolean,
     default: true
+  },
+  linkText: {
+    type: String,
+    default: null
+  },
+  linkUrl: {
+    type: String,
+    default: null
+  },
+  linkTarget: {
+    type: String,
+    default: '_blank'
   }
 })
 </script>
@@ -135,6 +151,20 @@ defineProps({
   line-height: 1.8;
   font-size: 1.05rem;
   margin: 0;
+}
+
+.info-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.info-link:hover {
+  color: #FFD700;
+  text-decoration: underline;
 }
 
 .image-column {
