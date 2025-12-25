@@ -2,31 +2,12 @@
   <div class="partnerships">
     <section class="partnerships-content">
       <div class="container">
-        <div class="partnership-intro">
-          <h2>RST CleanTech Automated Solar Panel Cleaning System</h2>
-          <p class="intro-text">
-            Pacific Solar Shiners is proud to partner with RST CleanTech, a leader in 
-            automated solar panel cleaning technology. This innovative system revolutionizes 
-            how we maintain and clean solar installations.
-          </p>
-        </div>
-
-        <div class="system-overview">
-          <div class="system-image">
-            <div class="image-placeholder">
-              <span>RST CleanTech System</span>
-            </div>
-          </div>
-          <div class="system-description">
-            <h3>Advanced Automated Cleaning Technology</h3>
-            <p>
-              The RST CleanTech system represents the cutting edge of solar panel maintenance. 
-              This fully automated solution ensures consistent, thorough cleaning without the 
-              need for manual intervention, making it ideal for large-scale installations and 
-              hard-to-reach panels.
-            </p>
-          </div>
-        </div>
+        <PartnershipFeature
+          title="RST CleanTech"
+          :text="rstCleanTechText"
+          :image-src="null"
+          :show-logo-placeholder="true"
+        />
 
         <div class="how-it-works">
           <h2>How It Works</h2>
@@ -123,6 +104,9 @@
 </template>
 
 <script setup>
+import PartnershipFeature from '../components/PartnershipFeature.vue'
+
+const rstCleanTechText = "Installed on over 4,000+ solar projects worldwide, RST CleanTech's automated solar panel cleaning system keeps panels operating at maximum efficiency year-round with no manual labor required. Founded in 2013, with offices on four continents and two patented technologies, RST CleanTech has established itself as a global leader in automated solar panel maintenance. Pacific Solar Shiners works directly with RST CleanTech's North American office in Los Angeles and is a certified installer of their system."
 </script>
 
 <style scoped>
