@@ -9,7 +9,7 @@ export const emailjsConfig = {
   serviceId: 'service_0x8yco8',
   
   // Your EmailJS Template ID (found in Email Templates)
-  templateId: 'template_upm4ukg',
+  templateId: 'template_7ngmqal',
   
   // Recipient email address
   toEmail: 'austinkirby@pacificsolarshiners.com'

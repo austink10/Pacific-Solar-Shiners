@@ -98,25 +98,67 @@ const submitted = ref(false)
 const loading = ref(false)
 const error = ref(false)
 let emailjs = null
+let emailjsLoaded = ref(false)
 
-// Load EmailJS from CDN
-onMounted(async () => {
-  if (!window.emailjs) {
+// Function to ensure EmailJS is loaded and initialized
+const ensureEmailJSReady = () => {
+  return new Promise((resolve, reject) => {
+    // If EmailJS is already loaded and initialized
+    if (window.emailjs && emailjsLoaded.value) {
+      emailjs = window.emailjs
+      resolve()
+      return
+    }
+
+    // If EmailJS is loaded but not initialized
+    if (window.emailjs) {
+      emailjs = window.emailjs
+      if (emailjsConfig.publicKey && emailjsConfig.publicKey !== 'YOUR_PUBLIC_KEY') {
+        emailjs.init(emailjsConfig.publicKey)
+        emailjsLoaded.value = true
+      }
+      resolve()
+      return
+    }
+
+    // Load EmailJS from CDN
     const script = document.createElement('script')
     script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js'
     script.onload = () => {
       emailjs = window.emailjs
-      // Initialize EmailJS with your public key
       if (emailjsConfig.publicKey && emailjsConfig.publicKey !== 'YOUR_PUBLIC_KEY') {
         emailjs.init(emailjsConfig.publicKey)
+        emailjsLoaded.value = true
       }
+      resolve()
+    }
+    script.onerror = () => {
+      reject(new Error('Failed to load EmailJS'))
     }
     document.head.appendChild(script)
-  } else {
-    emailjs = window.emailjs
-    if (emailjsConfig.publicKey && emailjsConfig.publicKey !== 'YOUR_PUBLIC_KEY') {
-      emailjs.init(emailjsConfig.publicKey)
+  })
+}
+
+// Load EmailJS on mount
+onMounted(async () => {
+  try {
+    await ensureEmailJSReady()
+  } catch (err) {
+    console.error('Error loading EmailJS:', err)
+  }
+})
+
+// Initialize EmailJS when modal opens
+watch(() => props.isOpen, async (isOpen) => {
+  if (isOpen) {
+    try {
+      await ensureEmailJSReady()
+    } catch (err) {
+      console.error('Error initializing EmailJS:', err)
     }
+    document.addEventListener('keydown', handleEscape)
+  } else {
+    document.removeEventListener('keydown', handleEscape)
   }
 })
 
@@ -136,15 +178,19 @@ const closeModal = () => {
   }, 300)
 }
 
-const handleSubmit = async () => {
+const handleSubmit = async (e) => {
+  // Prevent default form submission
+  if (e) {
+    e.preventDefault()
+  }
+  
   loading.value = true
   error.value = false
+  submitted.value = false
   
   try {
-    // Wait for EmailJS to load if not already loaded
-    if (!emailjs && window.emailjs) {
-      emailjs = window.emailjs
-    }
+    // Ensure EmailJS is loaded and initialized
+    await ensureEmailJSReady()
     
     if (!emailjs) {
       throw new Error('EmailJS not loaded yet')
@@ -187,17 +233,9 @@ Phone Number: ${form.value.phone}`
     console.error('Error sending email:', err)
     error.value = true
     loading.value = false
+    submitted.value = false
   }
 }
-
-// Close on Escape key
-watch(() => props.isOpen, (isOpen) => {
-  if (isOpen) {
-    document.addEventListener('keydown', handleEscape)
-  } else {
-    document.removeEventListener('keydown', handleEscape)
-  }
-})
 
 const handleEscape = (e) => {
   if (e.key === 'Escape') {
