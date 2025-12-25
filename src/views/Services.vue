@@ -28,17 +28,17 @@ const services = ref([
   {
     title: 'Automated Solar Wash Installation',
     description: 'Installation of automated solar panel cleaning systems for hands-free maintenance and optimal performance.',
-    image: '/images/services/automated-wash.jpg'
+    image: '/images/services/automated-wash.jpeg'
   },
   {
     title: 'Gutter Cleaning',
     description: 'Comprehensive gutter cleaning services to prevent debris buildup and protect your property.',
-    image: '/images/services/gutter-cleaning.jpg'
+    image: '/images/services/gutter-cleaning.jpeg'
   },
   {
     title: 'Roof Cleaning',
     description: 'Expert roof cleaning services to maintain your property\'s appearance and structural integrity.',
-    image: '/images/services/roof-cleaning.jpg'
+    image: '/images/services/roof-cleaning.jpeg'
   }
 ])
 
