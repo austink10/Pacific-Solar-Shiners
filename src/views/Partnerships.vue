@@ -106,7 +106,7 @@
 <script setup>
 import PartnershipFeature from '../components/PartnershipFeature.vue'
 
-const rstCleanTechText = "Installed on over 4,000+ solar projects worldwide, RST CleanTech's automated solar panel cleaning system keeps panels operating at maximum efficiency year-round with no manual labor required. Founded in 2013, with offices on four continents and two patented technologies, RST CleanTech has established itself as a global leader in automated solar panel maintenance. Pacific Solar Shiners works directly with RST CleanTech's North American office in Los Angeles and is a certified installer of their system."
+const rstCleanTechText = "Installed on more than 4,000 solar projects worldwide, RST CleanTech's automated solar panel cleaning system keeps panels operating at peak efficiency year-round—without the need for manual labor. Founded in 2013, RST CleanTech operates across four continents and holds two patented technologies, establishing itself as a global leader in automated solar panel maintenance. This environmentally friendly cleaning system is manufacturer-approved and fully compliant with solar panel warranty requirements. Pacific Solar Shiners works directly with RST CleanTech's North American office in Los Angeles and is a certified installer of their system."
 </script>
 
 <style scoped>
