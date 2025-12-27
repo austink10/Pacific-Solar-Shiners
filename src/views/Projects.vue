@@ -53,7 +53,7 @@
                   </svg>
                   <span class="location-text">{{ residentialProjects[0]?.location }}</span>
                 </div>
-                <p>{{ residentialProjects[0]?.description || 'Description text will be added here.' }}</p>
+                <p v-if="residentialProjects[0]?.description">{{ residentialProjects[0].description }}</p>
               </div>
             </div>
 
@@ -125,7 +125,7 @@
                   </svg>
                   <span class="location-text">{{ residentialProjects[2]?.location }}</span>
                 </div>
-                <p>{{ residentialProjects[2]?.description || 'Description text will be added here.' }}</p>
+                <p v-if="residentialProjects[2]?.description">{{ residentialProjects[2].description }}</p>
               </div>
             </div>
 
@@ -161,7 +161,7 @@
                   </svg>
                   <span class="location-text">{{ residentialProjects[3]?.location }}</span>
                 </div>
-                <p>{{ residentialProjects[3]?.description || 'Description text will be added here.' }}</p>
+                <p v-if="residentialProjects[3]?.description">{{ residentialProjects[3].description }}</p>
               </div>
             </div>
           </div>
@@ -242,26 +242,22 @@ const residentialProjects = ref([
   {
     beforeImage: '/images/projects/residential/residential-before-1.jpg',
     afterImage: '/images/projects/residential/residential-after-1.jpg',
-    location: 'Lemon Grove',
-    description: 'Description text will be added here.'
+    location: 'Lemon Grove'
   },
   {
     beforeImage: '/images/projects/residential/residential-before-2.jpg',
     afterImage: '/images/projects/residential/residential-after-2.jpg',
-    location: 'El Cajon',
-    description: 'Description text will be added here.'
+    location: 'El Cajon'
   },
   {
     beforeImage: '/images/projects/residential/residential-before-3.jpg',
     afterImage: '/images/projects/residential/residential-after-3.jpg',
-    location: 'Serra Mesa',
-    description: 'Description text will be added here.'
+    location: 'Serra Mesa'
   },
   {
     beforeImage: '/images/projects/residential/residential-before-4.jpg',
     afterImage: '/images/projects/residential/residential-after-4.jpg',
-    location: 'Rancho Santa Fe',
-    description: 'Description text will be added here.'
+    location: 'Rancho Santa Fe'
   }
 ])
 
