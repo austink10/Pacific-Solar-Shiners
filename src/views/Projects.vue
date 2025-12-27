@@ -193,7 +193,7 @@
                 </div>
               </div>
               <div class="text-content">
-                <p>{{ commercialProjects[0]?.description || 'Description text will be added here.' }}</p>
+                <p v-if="commercialProjects[0]?.description">{{ commercialProjects[0].description }}</p>
               </div>
             </div>
 
@@ -223,7 +223,7 @@
                 </div>
               </div>
               <div class="text-content">
-                <p>{{ commercialProjects[1]?.description || 'Description text will be added here.' }}</p>
+                <p v-if="commercialProjects[1]?.description">{{ commercialProjects[1].description }}</p>
               </div>
             </div>
           </div>
@@ -264,13 +264,11 @@ const residentialProjects = ref([
 const commercialProjects = ref([
   {
     beforeImage: null,
-    afterImage: null,
-    description: 'Description text will be added here.'
+    afterImage: null
   },
   {
     beforeImage: null,
-    afterImage: null,
-    description: 'Description text will be added here.'
+    afterImage: null
   }
 ])
 
@@ -329,7 +327,7 @@ const handleImageError = (event) => {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .project-container {
@@ -356,7 +354,7 @@ const handleImageError = (event) => {
 .image-slot {
   position: relative;
   width: 100%;
-  padding-top: 75%;
+  padding-top: 60%;
   overflow: hidden;
   background: var(--bg-dark);
 }
@@ -393,7 +391,7 @@ const handleImageError = (event) => {
 }
 
 .text-content {
-  padding: 2rem;
+  padding: 1.25rem 1.5rem;
   background: var(--bg-light);
 }
 
@@ -401,7 +399,7 @@ const handleImageError = (event) => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .location-icon {
@@ -437,11 +435,11 @@ const handleImageError = (event) => {
 
 @media (max-width: 1024px) {
   .projects-grid {
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .text-content {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 }
 
@@ -465,7 +463,7 @@ const handleImageError = (event) => {
 
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .image-section {
@@ -473,7 +471,7 @@ const handleImageError = (event) => {
   }
 
   .text-content {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .text-content p {
@@ -488,7 +486,7 @@ const handleImageError = (event) => {
   }
 
   .text-content {
-    padding: 1.25rem;
+    padding: 1rem;
   }
 }
 </style>
