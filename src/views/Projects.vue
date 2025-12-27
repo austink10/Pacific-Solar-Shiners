@@ -89,7 +89,7 @@
                   </svg>
                   <span class="location-text">{{ residentialProjects[1]?.location }}</span>
                 </div>
-                <p>{{ residentialProjects[1]?.description || 'Description text will be added here.' }}</p>
+                <p v-if="residentialProjects[1]?.description">{{ residentialProjects[1].description }}</p>
               </div>
             </div>
 
