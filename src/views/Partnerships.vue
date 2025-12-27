@@ -13,45 +13,6 @@
           link-target="_blank"
         />
 
-        <div class="how-it-works">
-          <h2>How It Works</h2>
-          <div class="steps-grid">
-            <div class="step-card">
-              <div class="step-number">1</div>
-              <h3>Automated Detection</h3>
-              <p>
-                The system uses advanced sensors to detect when panels need cleaning, 
-                monitoring dust levels, efficiency drops, and environmental conditions.
-              </p>
-            </div>
-            <div class="step-card">
-              <div class="step-number">2</div>
-              <h3>Precision Cleaning</h3>
-              <p>
-                Robotic cleaning arms move across the panels with precision, using 
-                specialized brushes and eco-friendly cleaning solutions to remove all 
-                debris and buildup.
-              </p>
-            </div>
-            <div class="step-card">
-              <div class="step-number">3</div>
-              <h3>Water Conservation</h3>
-              <p>
-                The system uses minimal water through advanced recycling technology, 
-                making it environmentally friendly and cost-effective.
-              </p>
-            </div>
-            <div class="step-card">
-              <div class="step-number">4</div>
-              <h3>Continuous Monitoring</h3>
-              <p>
-                After cleaning, the system continues to monitor panel performance, 
-                ensuring optimal efficiency and scheduling maintenance as needed.
-              </p>
-            </div>
-          </div>
-        </div>
-
         <div class="benefits-section">
           <h2>Key Benefits</h2>
           <div class="benefits-grid">
@@ -86,21 +47,6 @@
               <p>Gentle cleaning process protects panel integrity</p>
             </div>
           </div>
-        </div>
-
-        <div class="partnership-details">
-          <h2>Our Partnership</h2>
-          <p>
-            Through our partnership with RST CleanTech, Pacific Solar Shiners can offer 
-            state-of-the-art automated cleaning solutions for commercial and large-scale 
-            residential installations. This technology complements our traditional cleaning 
-            services, allowing us to provide the best solution for every client.
-          </p>
-          <p>
-            Whether you need the precision of automated cleaning or the flexibility of 
-            manual service, we have the expertise and technology to keep your solar panels 
-            operating at maximum efficiency.
-          </p>
         </div>
       </div>
     </section>
@@ -207,64 +153,6 @@ const rstCleanTechText = "Installed on more than 4,000 solar projects worldwide,
   font-size: 1.05rem;
 }
 
-.how-it-works {
-  margin-bottom: 4rem;
-}
-
-.how-it-works h2 {
-  text-align: center;
-  color: var(--white);
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  font-weight: 700;
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.step-card {
-  background: var(--bg-light);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.step-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.step-number {
-  width: 60px;
-  height: 60px;
-  background: var(--primary-color);
-  color: var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 auto 1.5rem;
-}
-
-.step-card h3 {
-  color: var(--white);
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-}
-
-.step-card p {
-  color: var(--text-light);
-  line-height: 1.6;
-}
-
 .benefits-section {
   margin-bottom: 4rem;
 }
@@ -313,29 +201,6 @@ const rstCleanTechText = "Installed on more than 4,000 solar projects worldwide,
   line-height: 1.6;
 }
 
-.partnership-details {
-  max-width: 900px;
-  margin: 0 auto;
-  background: var(--bg-light);
-  padding: 2.5rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.partnership-details h2 {
-  color: var(--white);
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-}
-
-.partnership-details p {
-  color: var(--text-light);
-  line-height: 1.8;
-  margin-bottom: 1rem;
-  font-size: 1.05rem;
-}
-
 @media (max-width: 768px) {
   .partnerships-hero {
     padding: 3rem 0;
@@ -350,7 +215,6 @@ const rstCleanTechText = "Installed on more than 4,000 solar projects worldwide,
   }
 
   .partnership-intro h2,
-  .how-it-works h2,
   .benefits-section h2 {
     font-size: 2rem;
   }
@@ -360,7 +224,6 @@ const rstCleanTechText = "Installed on more than 4,000 solar projects worldwide,
     gap: 2rem;
   }
 
-  .steps-grid,
   .benefits-grid {
     grid-template-columns: 1fr;
   }
