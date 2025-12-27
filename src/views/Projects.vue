@@ -47,6 +47,12 @@
                 </div>
               </div>
               <div class="text-content">
+                <div class="location-info">
+                  <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+                  </svg>
+                  <span class="location-text">{{ residentialProjects[0]?.location }}</span>
+                </div>
                 <p>{{ residentialProjects[0]?.description || 'Description text will be added here.' }}</p>
               </div>
             </div>
@@ -77,6 +83,12 @@
                 </div>
               </div>
               <div class="text-content">
+                <div class="location-info">
+                  <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+                  </svg>
+                  <span class="location-text">{{ residentialProjects[1]?.location }}</span>
+                </div>
                 <p>{{ residentialProjects[1]?.description || 'Description text will be added here.' }}</p>
               </div>
             </div>
@@ -107,6 +119,12 @@
                 </div>
               </div>
               <div class="text-content">
+                <div class="location-info">
+                  <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+                  </svg>
+                  <span class="location-text">{{ residentialProjects[2]?.location }}</span>
+                </div>
                 <p>{{ residentialProjects[2]?.description || 'Description text will be added here.' }}</p>
               </div>
             </div>
@@ -137,6 +155,12 @@
                 </div>
               </div>
               <div class="text-content">
+                <div class="location-info">
+                  <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+                  </svg>
+                  <span class="location-text">{{ residentialProjects[3]?.location }}</span>
+                </div>
                 <p>{{ residentialProjects[3]?.description || 'Description text will be added here.' }}</p>
               </div>
             </div>
@@ -218,21 +242,25 @@ const residentialProjects = ref([
   {
     beforeImage: '/images/projects/residential/residential-before-1.jpg',
     afterImage: '/images/projects/residential/residential-after-1.jpg',
+    location: 'Lemon Grove',
     description: 'Description text will be added here.'
   },
   {
     beforeImage: '/images/projects/residential/residential-before-2.jpg',
     afterImage: '/images/projects/residential/residential-after-2.jpg',
+    location: 'El Cajon',
     description: 'Description text will be added here.'
   },
   {
     beforeImage: '/images/projects/residential/residential-before-3.jpg',
     afterImage: '/images/projects/residential/residential-after-3.jpg',
+    location: 'Serra Mesa',
     description: 'Description text will be added here.'
   },
   {
     beforeImage: '/images/projects/residential/residential-before-4.jpg',
     afterImage: '/images/projects/residential/residential-after-4.jpg',
+    location: 'Rancho Santa Fe',
     description: 'Description text will be added here.'
   }
 ])
@@ -371,6 +399,26 @@ const handleImageError = (event) => {
 .text-content {
   padding: 2rem;
   background: var(--bg-light);
+}
+
+.location-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.location-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.location-text {
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .text-content p {
