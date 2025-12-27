@@ -80,6 +80,66 @@
                 <p>{{ residentialProjects[1]?.description || 'Description text will be added here.' }}</p>
               </div>
             </div>
+
+            <div class="project-container">
+              <div class="image-section">
+                <div class="image-slot before">
+                  <img 
+                    v-if="residentialProjects[2]?.beforeImage" 
+                    :src="residentialProjects[2].beforeImage" 
+                    alt="Before"
+                    @error="handleImageError"
+                  />
+                  <div v-else class="image-placeholder">
+                    <span>Before</span>
+                  </div>
+                </div>
+                <div class="image-slot after">
+                  <img 
+                    v-if="residentialProjects[2]?.afterImage" 
+                    :src="residentialProjects[2].afterImage" 
+                    alt="After"
+                    @error="handleImageError"
+                  />
+                  <div v-else class="image-placeholder">
+                    <span>After</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-content">
+                <p>{{ residentialProjects[2]?.description || 'Description text will be added here.' }}</p>
+              </div>
+            </div>
+
+            <div class="project-container">
+              <div class="image-section">
+                <div class="image-slot before">
+                  <img 
+                    v-if="residentialProjects[3]?.beforeImage" 
+                    :src="residentialProjects[3].beforeImage" 
+                    alt="Before"
+                    @error="handleImageError"
+                  />
+                  <div v-else class="image-placeholder">
+                    <span>Before</span>
+                  </div>
+                </div>
+                <div class="image-slot after">
+                  <img 
+                    v-if="residentialProjects[3]?.afterImage" 
+                    :src="residentialProjects[3].afterImage" 
+                    alt="After"
+                    @error="handleImageError"
+                  />
+                  <div v-else class="image-placeholder">
+                    <span>After</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-content">
+                <p>{{ residentialProjects[3]?.description || 'Description text will be added here.' }}</p>
+              </div>
+            </div>
           </div>
 
           <div v-else key="commercial" class="projects-grid">
@@ -156,13 +216,23 @@ const activeTab = ref('residential')
 
 const residentialProjects = ref([
   {
-    beforeImage: null,
-    afterImage: null,
+    beforeImage: '/images/projects/residential/residential-before-1.jpg',
+    afterImage: '/images/projects/residential/residential-after-1.jpg',
     description: 'Description text will be added here.'
   },
   {
-    beforeImage: null,
-    afterImage: null,
+    beforeImage: '/images/projects/residential/residential-before-2.jpg',
+    afterImage: '/images/projects/residential/residential-after-2.jpg',
+    description: 'Description text will be added here.'
+  },
+  {
+    beforeImage: '/images/projects/residential/residential-before-3.jpg',
+    afterImage: '/images/projects/residential/residential-after-3.jpg',
+    description: 'Description text will be added here.'
+  },
+  {
+    beforeImage: '/images/projects/residential/residential-before-4.jpg',
+    afterImage: '/images/projects/residential/residential-after-4.jpg',
     description: 'Description text will be added here.'
   }
 ])
