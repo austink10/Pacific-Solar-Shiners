@@ -100,7 +100,7 @@ onMounted(() => {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  padding-top: 1rem;
+  padding-top: 3.5rem;
 }
 
 .back-link {
@@ -113,20 +113,11 @@ onMounted(() => {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 191, 0, 0.3);
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease;
 }
 
 .back-link:hover {
   color: var(--white);
-  background: rgba(0, 0, 0, 0.9);
-  border-color: var(--primary-color);
-  transform: translateX(-3px);
 }
 
 .service-header {
@@ -206,14 +197,13 @@ onMounted(() => {
 
   .service-detail-container {
     padding: 0 1rem;
-    padding-top: 1rem;
+    padding-top: 3rem;
   }
 
   .back-link {
     top: 70px;
     left: 1rem;
     font-size: 0.9rem;
-    padding: 0.625rem 1.25rem;
   }
 
   .service-detail-title {
