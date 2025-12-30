@@ -11,6 +11,7 @@
       <div class="service-content">
         <h2 class="service-title">{{ service.title }}</h2>
         <p class="service-description">{{ service.description }}</p>
+        <router-link :to="`/services/${service.slug}`" class="learn-more-link">Learn More →</router-link>
       </div>
     </section>
   </div>
@@ -23,22 +24,26 @@ const services = ref([
   {
     title: 'Panel Cleaning',
     description: 'Professional solar panel cleaning service to maximize your energy efficiency and protect your investment.',
-    image: '/images/services/panel-cleaning.jpg'
+    image: '/images/services/panel-cleaning.jpg',
+    slug: 'panel-cleaning'
   },
   {
     title: 'Automated Solar Wash Installation',
     description: 'Installation of automated solar panel cleaning systems for hands-free maintenance and optimal performance.',
-    image: '/images/services/automated-wash.jpeg'
+    image: '/images/services/automated-wash.jpeg',
+    slug: 'automated-solar-wash-installation'
   },
   {
     title: 'Gutter Cleaning',
     description: 'Comprehensive gutter cleaning services to prevent debris buildup and protect your property.',
-    image: '/images/services/gutter-cleaning.jpeg'
+    image: '/images/services/gutter-cleaning.jpeg',
+    slug: 'gutter-cleaning'
   },
   {
     title: 'Roof Cleaning',
     description: 'Expert roof cleaning services to maintain your property\'s appearance and structural integrity.',
-    image: '/images/services/roof-cleaning.jpeg'
+    image: '/images/services/roof-cleaning.jpeg',
+    slug: 'roof-cleaning'
   }
 ])
 
@@ -145,6 +150,22 @@ onUnmounted(() => {
   font-size: 1.2rem;
   line-height: 1.8;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.learn-more-link {
+  display: inline-block;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.learn-more-link:hover {
+  color: var(--white);
+  transform: translateX(5px);
 }
 
 @media (max-width: 1024px) {
