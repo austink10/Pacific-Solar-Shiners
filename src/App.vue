@@ -4,7 +4,7 @@
       <div class="container">
         <div class="header-content">
           <router-link to="/" class="logo">
-            <img src="/images/logos/PSS Logo Horizontal.png" alt="Pacific Solar Shiners" class="logo-image" />
+            <img src="/images/logos/PSS-Logo-Horizontal.png" alt="Pacific Solar Shiners" class="logo-image" />
           </router-link>
           <nav class="nav">
             <router-link to="/" class="nav-link">Home</router-link>
@@ -126,6 +126,8 @@ body {
   width: auto;
   max-width: 200px;
   object-fit: contain;
+  background: transparent;
+  display: block;
 }
 
 .nav {
