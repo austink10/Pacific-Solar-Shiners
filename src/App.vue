@@ -37,7 +37,19 @@
 
     <footer class="footer">
       <div class="container">
-        <p>&copy; {{ new Date().getFullYear() }} Pacific Solar Shiners. All rights reserved.</p>
+        <div class="footer-content">
+          <div class="footer-left">
+            <img src="/images/logos/PSS-Logo-Side-by-Side.png" alt="Pacific Solar Shiners" class="footer-logo" />
+          </div>
+          <div class="footer-right">
+            <h3 class="footer-heading">Contact</h3>
+            <p class="footer-contact">Text or Call: <a href="tel:619-320-8425">619-320-8425</a></p>
+            <p class="footer-contact">
+              <a href="mailto:contact@pacificsolarshiners.com">contact@pacificsolarshiners.com</a>
+            </p>
+          </div>
+        </div>
+        <p class="footer-copyright">&copy; {{ new Date().getFullYear() }} Pacific Solar Shiners. All rights reserved.</p>
       </div>
     </footer>
   </div>
@@ -199,9 +211,95 @@ body {
 .footer {
   background: var(--bg-dark);
   color: var(--white);
-  padding: 2rem 0;
-  text-align: center;
+  padding: 3rem 0 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  background: transparent;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-heading {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.footer-contact {
+  color: var(--text-light);
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.footer-contact a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: var(--white);
+}
+
+.footer-copyright {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin: 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-left {
+    justify-content: center;
+  }
+
+  .footer-logo {
+    max-width: 200px;
+  }
+
+  .footer-right {
+    align-items: center;
+  }
+
+  .footer-heading {
+    font-size: 1.25rem;
+  }
 }
 
 @media (max-width: 768px) {
