@@ -20,7 +20,7 @@
       </div>
       <div class="container">
         <div class="hero-content">
-          <img src="/images/logos/PSS-Logo-Horizontal.png" alt="Pacific Solar Shiners" class="hero-logo" />
+          <img src="/images/logos/PSS-Logo.png" alt="Pacific Solar Shiners" class="hero-logo" />
           <p class="hero-description">
             Maximize your solar panel efficiency and reduce utility costs with our expert cleaning services. 
             Serving residential and commercial properties throughout the Pacific region.
@@ -231,6 +231,7 @@ onUnmounted(() => {
   height: auto;
   margin: 0 auto 1.5rem;
   display: block;
+  background: transparent;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
