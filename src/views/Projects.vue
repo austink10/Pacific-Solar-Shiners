@@ -164,6 +164,78 @@
                 <p v-if="residentialProjects[3]?.description">{{ residentialProjects[3].description }}</p>
               </div>
             </div>
+
+            <div class="project-container">
+              <div class="image-section">
+                <div class="image-slot before">
+                  <img 
+                    v-if="residentialProjects[4]?.beforeImage" 
+                    :src="residentialProjects[4].beforeImage" 
+                    alt="Before"
+                    @error="handleImageError"
+                  />
+                  <div v-else class="image-placeholder">
+                    <span>Before</span>
+                  </div>
+                </div>
+                <div class="image-slot after">
+                  <img 
+                    v-if="residentialProjects[4]?.afterImage" 
+                    :src="residentialProjects[4].afterImage" 
+                    alt="After"
+                    @error="handleImageError"
+                  />
+                  <div v-else class="image-placeholder">
+                    <span>After</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-content">
+                <div class="location-info">
+                  <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+                  </svg>
+                  <span class="location-text">{{ residentialProjects[4]?.location }}</span>
+                </div>
+                <p v-if="residentialProjects[4]?.description">{{ residentialProjects[4].description }}</p>
+              </div>
+            </div>
+
+            <div class="project-container">
+              <div class="image-section">
+                <div class="image-slot before">
+                  <img 
+                    v-if="residentialProjects[5]?.beforeImage" 
+                    :src="residentialProjects[5].beforeImage" 
+                    alt="Before"
+                    @error="handleImageError"
+                  />
+                  <div v-else class="image-placeholder">
+                    <span>Before</span>
+                  </div>
+                </div>
+                <div class="image-slot after">
+                  <img 
+                    v-if="residentialProjects[5]?.afterImage" 
+                    :src="residentialProjects[5].afterImage" 
+                    alt="After"
+                    @error="handleImageError"
+                  />
+                  <div v-else class="image-placeholder">
+                    <span>After</span>
+                  </div>
+                </div>
+              </div>
+              <div class="text-content">
+                <div class="location-info">
+                  <svg class="location-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="currentColor"/>
+                  </svg>
+                  <span class="location-text">{{ residentialProjects[5]?.location }}</span>
+                </div>
+                <p v-if="residentialProjects[5]?.description">{{ residentialProjects[5].description }}</p>
+              </div>
+            </div>
           </div>
 
           <div v-else key="commercial" class="projects-grid">
@@ -258,6 +330,16 @@ const residentialProjects = ref([
     beforeImage: '/images/projects/residential/residential-before-4.jpg',
     afterImage: '/images/projects/residential/residential-after-4.jpg',
     location: 'Rancho Santa Fe'
+  },
+  {
+    beforeImage: null,
+    afterImage: null,
+    location: ''
+  },
+  {
+    beforeImage: null,
+    afterImage: null,
+    location: ''
   }
 ])
 
