@@ -332,14 +332,14 @@ const residentialProjects = ref([
     location: 'Rancho Santa Fe'
   },
   {
-    beforeImage: null,
-    afterImage: null,
-    location: ''
+    beforeImage: '/images/projects/residential/residential-before-5.jpg',
+    afterImage: '/images/projects/residential/residential-after-5.jpg',
+    location: 'Santee'
   },
   {
-    beforeImage: null,
-    afterImage: null,
-    location: ''
+    beforeImage: '/images/projects/residential/residential-before-6.jpg',
+    afterImage: '/images/projects/residential/residential-after-6.jpg',
+    location: 'Lakeside'
   }
 ])
 
