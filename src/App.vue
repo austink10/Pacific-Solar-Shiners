@@ -209,7 +209,7 @@ body {
 
 /* Footer */
 .footer {
-  background: var(--primary-color);
+  background: #FF6600;
   color: var(--bg-dark);
   padding: 3rem 0 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
