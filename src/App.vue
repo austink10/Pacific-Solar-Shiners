@@ -265,9 +265,9 @@ body {
 
 .footer-heading {
   color: var(--white);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.25rem 0;
 }
 
 .footer-contact-list {
@@ -276,7 +276,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .footer-contact-item {
@@ -284,13 +284,13 @@ body {
   align-items: center;
   gap: 0.75rem;
   color: var(--text-light);
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: 1.6;
 }
 
 .contact-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
   color: var(--primary-color);
 }
@@ -312,7 +312,7 @@ body {
 .footer-copyright {
   text-align: center;
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   margin: 0;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -342,7 +342,20 @@ body {
   }
 
   .footer-heading {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
+  }
+
+  .footer-contact-item {
+    font-size: 1.05rem;
+  }
+
+  .footer-copyright {
+    font-size: 1rem;
+  }
+
+  .contact-icon {
+    width: 20px;
+    height: 20px;
   }
 }
 
