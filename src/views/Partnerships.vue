@@ -12,42 +12,6 @@
           link-url="https://rst-cleantech.com"
           link-target="_blank"
         />
-
-        <div class="benefits-section">
-          <h2>Key Benefits</h2>
-          <div class="benefits-grid">
-            <div class="benefit-card">
-              <div class="benefit-icon">🤖</div>
-              <h3>Fully Automated</h3>
-              <p>No manual labor required - the system operates independently</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">⚡</div>
-              <h3>Increased Efficiency</h3>
-              <p>Maintains panels at peak performance consistently</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">💰</div>
-              <h3>Cost Effective</h3>
-              <p>Reduces long-term maintenance costs significantly</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">🌱</div>
-              <h3>Eco-Friendly</h3>
-              <p>Minimal water usage and environmentally safe cleaning solutions</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">📊</div>
-              <h3>Data Analytics</h3>
-              <p>Real-time monitoring and performance analytics</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">🛡️</div>
-              <h3>Panel Protection</h3>
-              <p>Gentle cleaning process protects panel integrity</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   </div>
@@ -153,54 +117,6 @@ const rstCleanTechText = "Installed on more than 4,000 solar projects worldwide,
   font-size: 1.05rem;
 }
 
-.benefits-section {
-  margin-bottom: 4rem;
-}
-
-.benefits-section h2 {
-  text-align: center;
-  color: var(--white);
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  font-weight: 700;
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.benefit-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.benefit-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.benefit-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.benefit-card h3 {
-  color: var(--white);
-  margin-bottom: 0.75rem;
-  font-size: 1.25rem;
-}
-
-.benefit-card p {
-  color: var(--text-light);
-  line-height: 1.6;
-}
-
 @media (max-width: 768px) {
   .partnerships-hero {
     padding: 3rem 0;
@@ -214,18 +130,13 @@ const rstCleanTechText = "Installed on more than 4,000 solar projects worldwide,
     padding: 2rem 0;
   }
 
-  .partnership-intro h2,
-  .benefits-section h2 {
+  .partnership-intro h2 {
     font-size: 2rem;
   }
 
   .system-overview {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .benefits-grid {
-    grid-template-columns: 1fr;
   }
 }
 </style>

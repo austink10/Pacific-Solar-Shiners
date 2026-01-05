@@ -32,32 +32,6 @@
           </p>
         </div>
 
-        <div class="content-section">
-          <h2>What Sets Us Apart</h2>
-          <ul class="features-list">
-            <li>
-              <strong>Expert Knowledge:</strong> Our team is trained in the latest solar 
-              panel cleaning techniques and safety protocols.
-            </li>
-            <li>
-              <strong>Eco-Friendly Solutions:</strong> We use only environmentally safe 
-              cleaning products that won't harm your panels or the environment.
-            </li>
-            <li>
-              <strong>Proven Results:</strong> Our cleaning services have helped customers 
-              increase their solar panel efficiency by up to 30%.
-            </li>
-            <li>
-              <strong>Flexible Scheduling:</strong> We work around your schedule to minimize 
-              disruption to your daily operations.
-            </li>
-            <li>
-              <strong>Comprehensive Service:</strong> From small residential installations 
-              to large commercial arrays, we handle projects of all sizes.
-            </li>
-          </ul>
-        </div>
-
       </div>
     </section>
   </div>
@@ -113,29 +87,6 @@
   line-height: 1.8;
   margin-bottom: 1rem;
   font-size: 1.05rem;
-}
-
-.features-list {
-  list-style: none;
-  padding: 0;
-}
-
-.features-list li {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background: var(--bg-light);
-  border-radius: 8px;
-  border-left: 4px solid var(--primary-color);
-  line-height: 1.8;
-  color: var(--text-light);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.features-list li strong {
-  color: var(--white);
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
 }
 
 @media (max-width: 768px) {

@@ -30,34 +30,6 @@
       </div>
     </section>
 
-    <section class="features">
-      <div class="container">
-        <h2 class="section-title">Why Choose Us?</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Increased Efficiency</h3>
-            <p>Clean panels can increase energy output by up to 30%</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">💰</div>
-            <h3>Save Money</h3>
-            <p>Lower utility bills through improved solar performance</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🏆</div>
-            <h3>Expert Service</h3>
-            <p>Professional cleaning with years of experience</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🌱</div>
-            <h3>Eco-Friendly</h3>
-            <p>Safe, environmentally responsible cleaning methods</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="services">
       <div class="container">
         <h2 class="section-title">Our Services</h2>
@@ -265,54 +237,12 @@ onUnmounted(() => {
   transform: translateY(0);
 }
 
-.features {
-  padding: 5rem 0;
-  background: var(--bg-dark);
-}
-
 .section-title {
   text-align: center;
   font-size: 2.5rem;
   color: var(--white);
   margin-bottom: 3rem;
   font-weight: 700;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.feature-card {
-  background: var(--bg-light);
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.feature-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.feature-card h3 {
-  color: var(--white);
-  margin-bottom: 0.75rem;
-  font-size: 1.25rem;
-}
-
-.feature-card p {
-  color: var(--text-light);
-  line-height: 1.6;
 }
 
 .services {
@@ -365,7 +295,6 @@ onUnmounted(() => {
     font-size: 2rem;
   }
 
-  .features,
   .services {
     padding: 3rem 0;
   }
