@@ -22,13 +22,13 @@
         <div class="content-section">
           <h2>Why Us</h2>
           <p>
-            Before starting Pacific Solar Shiners, I trained and worked directly with some of the highest-rated solar panel cleaning companies in the San Diego area. This hands-on experience gave me a clear understanding of both how solar panels should be cleaned and where much of the industry falls short.
+            Before starting Pacific Solar Shiners, I trained and worked directly with some of the highest-rated solar panel cleaning companies in the San Diego area. That hands-on experience gave me a clear understanding of how solar panels should be cleaned—and where much of the industry falls short.
           </p>
           <p>
-            I noticed two consistent problems. First, many companies priced their services so high that homeowners saw little to no real return, as the cost of cleaning often outweighed the additional energy savings. Second, solar panel cleaning was frequently treated as an add-on service—bundled with window cleaning or pressure washing—rather than a specialized process. As a result, panels were often cleaned quickly and improperly using the wrong equipment.
+            I consistently noticed two major issues. First, many companies priced their services too high, leaving homeowners with little to no real return, as the cost of cleaning often outweighed the additional energy savings. Second, solar panel cleaning was frequently treated as an add-on service—bundled with window cleaning or pressure washing—rather than a specialized process. As a result, panels were often rushed, improperly cleaned, and serviced with the wrong equipment.
           </p>
           <p>
-            I started this company to address those issues. My focus is simple: provide specialized, detail-driven solar panel cleaning at a fair price, ensuring your system performs efficiently while protecting your long-term investment.
+            I started Pacific Solar Shiners to address these issues. My focus is simple: provide specialized, detail-driven solar panel cleaning at a fair price—helping your system perform efficiently while protecting your long-term investment.
           </p>
         </div>
 
