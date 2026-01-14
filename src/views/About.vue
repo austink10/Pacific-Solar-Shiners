@@ -65,7 +65,9 @@
 
 .about-content {
   padding: 4rem 0;
-  background: var(--bg-dark);
+  background: transparent;
+  position: relative;
+  z-index: 2;
 }
 
 .content-section {
@@ -73,6 +75,8 @@
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .content-section h2 {
@@ -80,6 +84,7 @@
   font-size: 2rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .content-section p {
@@ -87,6 +92,7 @@
   line-height: 1.8;
   margin-bottom: 1rem;
   font-size: 1.05rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {

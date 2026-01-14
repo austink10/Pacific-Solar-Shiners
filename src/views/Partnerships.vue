@@ -48,7 +48,9 @@ const rstCleanTechText = "Installed on more than 4,000 solar projects worldwide,
 
 .partnerships-content {
   padding: 4rem 0;
-  background: var(--bg-dark);
+  background: transparent;
+  position: relative;
+  z-index: 2;
 }
 
 .partnership-intro {
