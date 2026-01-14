@@ -21,10 +21,6 @@
       <div class="container">
         <div class="hero-content">
           <img src="/images/logos/PSS-Logo.png" alt="Pacific Solar Shiners" class="hero-logo" />
-          <p class="hero-description">
-            Maximize your solar panel efficiency and reduce utility costs with our expert cleaning services. 
-            Serving residential and commercial properties throughout the Pacific region.
-          </p>
           <button class="cta-button" @click="openPricingModal">Get Pricing</button>
         </div>
       </div>
@@ -195,13 +191,10 @@ onUnmounted(() => {
   max-width: 800px;
   margin: 0 auto;
   pointer-events: auto;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 3rem;
-  border: 1px solid rgba(255, 191, 0, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), var(--glow-orange);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .hero-logo {
@@ -214,12 +207,6 @@ onUnmounted(() => {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.hero-description {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  line-height: 1.8;
-  opacity: 0.9;
-}
 
 .cta-button {
   background: linear-gradient(135deg, var(--primary-color) 0%, #FFD700 100%);
