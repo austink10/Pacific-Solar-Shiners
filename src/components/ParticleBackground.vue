@@ -32,25 +32,39 @@ const initParticles = () => {
     particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      radius: Math.random() * 1.5 + 0.8,
-      vx: (Math.random() - 0.5) * 0.2,
-      vy: (Math.random() - 0.5) * 0.2,
+      radius: Math.random() * 2 + 1.5,
+      baseRadius: Math.random() * 2 + 1.5,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
       iridescentColor: Math.random() > 0.5 ? '#FF6600' : '#00BFFF',
       pulsePhase: Math.random() * Math.PI * 2,
-      rotation: Math.random() * Math.PI * 2
+      rotation: Math.random() * Math.PI * 2,
+      floatPhase: Math.random() * Math.PI * 2,
+      floatSpeed: 0.3 + Math.random() * 0.4
     })
   }
 
   const animate = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    time += 0.015
+    time += 0.02
 
     // Update and draw bubbles
     particles.forEach((particle) => {
-      // Update position
+      // Update position with floating animation
       particle.x += particle.vx
       particle.y += particle.vy
-      particle.rotation += 0.01
+      
+      // Add floating/rising effect
+      const floatOffset = Math.sin(time * particle.floatSpeed + particle.floatPhase) * 0.5
+      particle.y += floatOffset * 0.1
+      particle.x += Math.cos(time * particle.floatSpeed * 0.7 + particle.floatPhase) * 0.05
+      
+      // Animated rotation
+      particle.rotation += 0.02 + Math.sin(time + particle.pulsePhase) * 0.01
+      
+      // Pulsing size animation
+      const sizePulse = 1 + Math.sin(time * 1.5 + particle.pulsePhase) * 0.15
+      particle.radius = particle.baseRadius * sizePulse
 
       // Wrap around edges
       if (particle.x < 0) particle.x = canvas.width
