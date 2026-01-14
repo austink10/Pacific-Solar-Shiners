@@ -91,28 +91,34 @@
 }
 
 .heading-1 {
-  animation: gradientShift 6s ease infinite;
+  animation: gradientShift 8s ease-in-out infinite;
 }
 
 .heading-2 {
-  animation: gradientShiftReverse 6s ease infinite;
+  animation: gradientShiftReverse 8s ease-in-out infinite;
 }
 
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
   }
-  20% {
-    background-position: 25% 50%;
+  15% {
+    background-position: 20% 50%;
   }
-  40% {
-    background-position: 50% 50%;
+  30% {
+    background-position: 40% 50%;
+  }
+  45% {
+    background-position: 60% 50%;
   }
   60% {
-    background-position: 75% 50%;
+    background-position: 80% 50%;
   }
-  80% {
-    background-position: 50% 50%;
+  75% {
+    background-position: 60% 50%;
+  }
+  90% {
+    background-position: 40% 50%;
   }
   100% {
     background-position: 0% 50%;
@@ -123,17 +129,23 @@
   0% {
     background-position: 100% 50%;
   }
-  20% {
-    background-position: 75% 50%;
+  15% {
+    background-position: 80% 50%;
   }
-  40% {
-    background-position: 50% 50%;
+  30% {
+    background-position: 60% 50%;
+  }
+  45% {
+    background-position: 40% 50%;
   }
   60% {
-    background-position: 25% 50%;
+    background-position: 20% 50%;
   }
-  80% {
-    background-position: 50% 50%;
+  75% {
+    background-position: 40% 50%;
+  }
+  90% {
+    background-position: 60% 50%;
   }
   100% {
     background-position: 100% 50%;
