@@ -185,6 +185,8 @@ onUnmounted(() => {
 <style scoped>
 .home {
   min-height: calc(100vh - 200px);
+  position: relative;
+  z-index: 1;
 }
 
 .hero {
@@ -199,6 +201,7 @@ onUnmounted(() => {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  z-index: 1;
 }
 
 .hero.revealed {
@@ -212,7 +215,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: 1;
   overflow: hidden;
   pointer-events: none;
 }
@@ -361,7 +364,9 @@ onUnmounted(() => {
 
 .services {
   padding: 5rem 0;
-  background: var(--bg-dark);
+  background: transparent;
+  position: relative;
+  z-index: 2;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
