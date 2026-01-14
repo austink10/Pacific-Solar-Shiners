@@ -34,8 +34,8 @@ const initParticles = () => {
       y: Math.random() * canvas.height,
       radius: Math.random() * 2 + 1.5,
       baseRadius: Math.random() * 2 + 1.5,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
       iridescentColor: Math.random() > 0.5 ? '#FF6600' : '#00BFFF',
       pulsePhase: Math.random() * Math.PI * 2,
       rotation: Math.random() * Math.PI * 2,
@@ -55,9 +55,9 @@ const initParticles = () => {
       particle.y += particle.vy
       
       // Add floating/rising effect
-      const floatOffset = Math.sin(time * particle.floatSpeed + particle.floatPhase) * 0.5
-      particle.y += floatOffset * 0.1
-      particle.x += Math.cos(time * particle.floatSpeed * 0.7 + particle.floatPhase) * 0.05
+      const floatOffset = Math.sin(time * particle.floatSpeed + particle.floatPhase) * 0.6
+      particle.y += floatOffset * 0.15
+      particle.x += Math.cos(time * particle.floatSpeed * 0.7 + particle.floatPhase) * 0.08
       
       // Animated rotation
       particle.rotation += 0.02 + Math.sin(time + particle.pulsePhase) * 0.01
@@ -82,8 +82,8 @@ const initParticles = () => {
         particle.x, particle.y, particle.radius * 1.2
       )
       const rimColor = isOrange
-        ? `rgba(255, 102, 0, ${0.15 * iridescentShift})`
-        : `rgba(0, 191, 255, ${0.15 * iridescentShift})`
+        ? `rgba(255, 102, 0, ${0.2 * iridescentShift})`
+        : `rgba(0, 191, 255, ${0.2 * iridescentShift})`
       
       rimGradient.addColorStop(0, 'transparent')
       rimGradient.addColorStop(0.7, rimColor)
@@ -120,11 +120,11 @@ const initParticles = () => {
       )
       
       const sheenColor1 = isOrange
-        ? `rgba(255, 102, 0, ${0.25 * iridescentShift})`
-        : `rgba(0, 191, 255, ${0.25 * iridescentShift})`
+        ? `rgba(255, 102, 0, ${0.3 * iridescentShift})`
+        : `rgba(0, 191, 255, ${0.3 * iridescentShift})`
       const sheenColor2 = isOrange
-        ? `rgba(255, 140, 0, ${0.15 * iridescentShift})`
-        : `rgba(0, 150, 255, ${0.15 * iridescentShift})`
+        ? `rgba(255, 140, 0, ${0.2 * iridescentShift})`
+        : `rgba(0, 150, 255, ${0.2 * iridescentShift})`
       
       sheenGradient.addColorStop(0, sheenColor1)
       sheenGradient.addColorStop(0.5, sheenColor2)
@@ -155,8 +155,8 @@ const initParticles = () => {
       ctx.beginPath()
       ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
       ctx.strokeStyle = isOrange
-        ? `rgba(255, 102, 0, ${0.2 * iridescentShift})`
-        : `rgba(0, 191, 255, ${0.2 * iridescentShift})`
+        ? `rgba(255, 102, 0, ${0.25 * iridescentShift})`
+        : `rgba(0, 191, 255, ${0.25 * iridescentShift})`
       ctx.lineWidth = 0.3
       ctx.stroke()
 
