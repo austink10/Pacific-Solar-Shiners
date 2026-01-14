@@ -23,26 +23,29 @@ const initParticles = () => {
   resizeCanvas()
   window.addEventListener('resize', resizeCanvas)
 
-  // Create particles
-  const particleCount = Math.min(50, Math.floor((canvas.width * canvas.height) / 15000))
+  // Create bubbles
+  const bubbleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 12000))
   particles = []
+  let time = 0
 
-  for (let i = 0; i < particleCount; i++) {
+  for (let i = 0; i < bubbleCount; i++) {
     particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      radius: Math.random() * 2 + 0.5,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-      color: Math.random() > 0.5 ? 'rgba(255, 191, 0, 0.3)' : 'rgba(0, 144, 255, 0.3)'
+      radius: Math.random() * 3 + 2,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      glowColor: Math.random() > 0.5 ? '#FF6600' : '#00BFFF',
+      pulsePhase: Math.random() * Math.PI * 2
     })
   }
 
   const animate = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    time += 0.02
 
-    // Update and draw particles
-    particles.forEach((particle, i) => {
+    // Update and draw bubbles
+    particles.forEach((particle) => {
       // Update position
       particle.x += particle.vx
       particle.y += particle.vy
@@ -53,37 +56,67 @@ const initParticles = () => {
       if (particle.y < 0) particle.y = canvas.height
       if (particle.y > canvas.height) particle.y = 0
 
-      // Draw particle
+      // Calculate pulsing glow intensity
+      const pulse = 0.6 + 0.4 * Math.sin(time * 2 + particle.pulsePhase)
+      const glowIntensity = pulse * 0.7
+
+      // Draw glow (outer glow)
+      const gradient = ctx.createRadialGradient(
+        particle.x, particle.y, 0,
+        particle.x, particle.y, particle.radius * 3
+      )
+      const glowColor = particle.glowColor === '#FF6600' 
+        ? `rgba(255, 102, 0, ${glowIntensity})` 
+        : `rgba(0, 191, 255, ${glowIntensity})`
+      
+      gradient.addColorStop(0, glowColor)
+      gradient.addColorStop(0.5, glowColor.replace(/[\d\.]+\)$/, '0.3)'))
+      gradient.addColorStop(1, 'transparent')
+
       ctx.beginPath()
-      ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
-      ctx.fillStyle = particle.color
+      ctx.arc(particle.x, particle.y, particle.radius * 3, 0, Math.PI * 2)
+      ctx.fillStyle = gradient
       ctx.fill()
 
-      // Draw connections
-      particles.slice(i + 1).forEach(otherParticle => {
-        const dx = particle.x - otherParticle.x
-        const dy = particle.y - otherParticle.y
-        const distance = Math.sqrt(dx * dx + dy * dy)
+      // Draw bubble (semi-transparent white with subtle highlight)
+      const bubbleGradient = ctx.createRadialGradient(
+        particle.x - particle.radius * 0.3, 
+        particle.y - particle.radius * 0.3, 
+        0,
+        particle.x, 
+        particle.y, 
+        particle.radius
+      )
+      bubbleGradient.addColorStop(0, 'rgba(255, 255, 255, 0.4)')
+      bubbleGradient.addColorStop(0.6, 'rgba(255, 255, 255, 0.15)')
+      bubbleGradient.addColorStop(1, 'rgba(255, 255, 255, 0.05)')
 
-        if (distance < 120) {
-          ctx.beginPath()
-          ctx.strokeStyle = `rgba(255, 191, 0, ${0.2 * (1 - distance / 120)})`
-          ctx.lineWidth = 0.5
-          ctx.moveTo(particle.x, particle.y)
-          ctx.lineTo(otherParticle.x, otherParticle.y)
-          ctx.stroke()
-        }
-      })
+      ctx.beginPath()
+      ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
+      ctx.fillStyle = bubbleGradient
+      ctx.fill()
 
-      // Mouse interaction
+      // Draw bubble highlight (small white highlight on top-left)
+      ctx.beginPath()
+      ctx.arc(
+        particle.x - particle.radius * 0.3, 
+        particle.y - particle.radius * 0.3, 
+        particle.radius * 0.3, 
+        0, 
+        Math.PI * 2
+      )
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)'
+      ctx.fill()
+
+      // Mouse interaction (subtle)
       const dx = mouse.x - particle.x
       const dy = mouse.y - particle.y
       const distance = Math.sqrt(dx * dx + dy * dy)
 
-      if (distance < 100) {
-        const force = (100 - distance) / 100
-        particle.vx += (dx / distance) * force * 0.01
-        particle.vy += (dy / distance) * force * 0.01
+      if (distance < 120) {
+        const force = (120 - distance) / 120 * 0.008
+        particle.vx += (dx / distance) * force
+        particle.vy += (dy / distance) * force
       }
     })
 
