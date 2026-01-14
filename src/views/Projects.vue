@@ -445,8 +445,10 @@ const handleImageError = (event) => {
 <style scoped>
 .projects {
   min-height: calc(100vh - 200px);
-  background: var(--bg-dark);
+  background: transparent;
   padding: 4rem 0;
+  position: relative;
+  z-index: 2;
 }
 
 .projects-container {
