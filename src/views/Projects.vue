@@ -373,6 +373,7 @@
           </div>
         </transition>
       </div>
+      <p class="more-projects-text">…and hundreds more!!</p>
     </div>
   </div>
 </template>
@@ -645,6 +646,16 @@ const handleImageError = (event) => {
   opacity: 0;
 }
 
+.more-projects-text {
+  text-align: center;
+  font-style: italic;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
 @media (max-width: 1024px) {
   .projects-grid {
     gap: 1.5rem;
@@ -662,6 +673,12 @@ const handleImageError = (event) => {
 
   .projects-container {
     padding: 0 1rem;
+  }
+
+  .more-projects-text {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .tab-buttons {
