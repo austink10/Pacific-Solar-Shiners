@@ -343,7 +343,7 @@ onUnmounted(() => {
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--white) 25%, var(--secondary-color) 50%, var(--white) 75%, var(--primary-color) 100%);
+  background: linear-gradient(135deg, #FFBF00 0%, rgba(255, 255, 255, 0.3) 12%, #0090FF 25%, rgba(255, 255, 255, 0.3) 37%, #FFBF00 50%, rgba(255, 255, 255, 0.3) 62%, #0090FF 75%, rgba(255, 255, 255, 0.3) 87%, #FFBF00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -357,13 +357,16 @@ onUnmounted(() => {
   0% {
     background-position: 0% 50%;
   }
-  25% {
+  20% {
+    background-position: 25% 50%;
+  }
+  40% {
     background-position: 50% 50%;
   }
-  50% {
-    background-position: 100% 50%;
+  60% {
+    background-position: 75% 50%;
   }
-  75% {
+  80% {
     background-position: 50% 50%;
   }
   100% {
