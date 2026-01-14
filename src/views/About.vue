@@ -83,7 +83,7 @@
   font-size: 2rem;
   margin-bottom: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--white) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--white) 25%, var(--secondary-color) 50%, var(--white) 75%, var(--primary-color) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -91,28 +91,46 @@
 }
 
 .heading-1 {
-  animation: gradientShift 3s ease infinite;
+  animation: gradientShift 6s ease infinite;
 }
 
 .heading-2 {
-  animation: gradientShiftReverse 3s ease infinite;
+  animation: gradientShiftReverse 6s ease infinite;
 }
 
 @keyframes gradientShift {
-  0%, 100% {
+  0% {
     background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
   }
   50% {
     background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
 @keyframes gradientShiftReverse {
-  0%, 100% {
+  0% {
     background-position: 100% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
   }
   50% {
     background-position: 0% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }
 
