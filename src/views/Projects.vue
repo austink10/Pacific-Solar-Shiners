@@ -466,22 +466,47 @@ const handleImageError = (event) => {
   font-size: 1.1rem;
   font-weight: 600;
   border: 2px solid var(--primary-color);
-  background: var(--bg-light);
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--primary-color);
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 191, 0, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.tab-button:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .tab-button:hover {
-  background: rgba(255, 191, 0, 0.1);
-  transform: translateY(-2px);
+  background: rgba(255, 191, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 191, 0, 0.3);
+  border-color: var(--primary-color);
 }
 
 .tab-button.active {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #FFD700 100%);
   color: var(--bg-dark);
-  box-shadow: 0 4px 12px rgba(255, 191, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 191, 0, 0.5), var(--glow-orange);
+  border-color: var(--primary-color);
 }
 
 .tab-content {
@@ -495,17 +520,38 @@ const handleImageError = (event) => {
 }
 
 .project-container {
-  background: var(--bg-light);
-  border-radius: 12px;
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 191, 0, 0.2);
+  position: relative;
+}
+
+.project-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.project-container:hover::before {
+  opacity: 1;
 }
 
 .project-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 191, 0, 0.2);
+  border-color: rgba(255, 191, 0, 0.4);
+  background: rgba(26, 26, 26, 0.85);
 }
 
 .image-section {
@@ -556,7 +602,7 @@ const handleImageError = (event) => {
 
 .text-content {
   padding: 1.25rem 1.5rem;
-  background: var(--bg-light);
+  background: transparent;
 }
 
 .location-info {

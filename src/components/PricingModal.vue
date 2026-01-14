@@ -281,7 +281,9 @@ const handleEscape = (e) => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -299,16 +301,19 @@ const handleEscape = (e) => {
 }
 
 .modal-content {
-  background: var(--bg-light);
-  border-radius: 12px;
-  padding: 2rem;
+  background: rgba(26, 26, 26, 0.85);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 20px;
+  padding: 2.5rem;
   max-width: 500px;
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  animation: slideUp 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 191, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 191, 0, 0.1);
 }
 
 @keyframes slideUp {
@@ -377,11 +382,13 @@ const handleEscape = (e) => {
 
 .form-group input {
   padding: 0.75rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
   font-size: 1rem;
-  transition: border-color 0.3s;
-  background: var(--bg-dark);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: var(--white);
 }
 
@@ -392,24 +399,45 @@ const handleEscape = (e) => {
 .form-group input:focus {
   outline: none;
   border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(255, 191, 0, 0.3), inset 0 0 15px rgba(255, 191, 0, 0.1);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .submit-btn {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #FFD700 100%);
   color: var(--bg-dark);
   border: none;
   padding: 0.875rem 1.5rem;
-  border-radius: 6px;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: 0.5rem;
+  box-shadow: 0 4px 15px rgba(255, 191, 0, 0.4), var(--glow-orange);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
 }
 
 .submit-btn:hover {
-  background: #FFD700;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #FFD700 0%, var(--primary-color) 100%);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(255, 191, 0, 0.6), var(--glow-orange);
 }
 
 .submit-btn:active {

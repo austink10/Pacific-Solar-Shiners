@@ -109,6 +109,8 @@ const closeMobileMenu = () => {
   --white: #FFFFFF;
   --shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.7);
+  --glow-orange: 0 0 20px rgba(255, 191, 0, 0.4), 0 0 40px rgba(255, 191, 0, 0.2);
+  --glow-blue: 0 0 20px rgba(0, 144, 255, 0.4), 0 0 40px rgba(0, 144, 255, 0.2);
 }
 
 body {

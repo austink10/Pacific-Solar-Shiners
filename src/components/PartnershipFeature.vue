@@ -72,11 +72,21 @@ defineProps({
 }
 
 .partnership-container {
-  background: var(--bg-light);
-  border-radius: 16px;
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
   padding: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 191, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 191, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.partnership-container:hover {
+  border-color: rgba(255, 191, 0, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 191, 0, 0.2);
+  background: rgba(26, 26, 26, 0.75);
+  transform: translateY(-4px);
 }
 
 .partnership-content {
