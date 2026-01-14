@@ -1,12 +1,5 @@
 <template>
   <div class="about">
-    <section class="about-hero">
-      <div class="container">
-        <h1>About Pacific Solar Shiners</h1>
-        <p class="hero-subtitle">Your Trusted Solar Panel Cleaning Experts</p>
-      </div>
-    </section>
-
     <section class="about-content">
       <div class="container">
         <div class="content-section">
@@ -43,24 +36,6 @@
 <style scoped>
 .about {
   min-height: calc(100vh - 200px);
-}
-
-.about-hero {
-  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
-  color: var(--white);
-  padding: 4rem 0;
-  text-align: center;
-}
-
-.about-hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  opacity: 0.95;
 }
 
 .about-content {
@@ -161,14 +136,6 @@
 }
 
 @media (max-width: 768px) {
-  .about-hero {
-    padding: 3rem 0;
-  }
-
-  .about-hero h1 {
-    font-size: 2rem;
-  }
-
   .about-content {
     padding: 2rem 0;
   }
