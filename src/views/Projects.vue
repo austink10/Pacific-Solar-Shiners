@@ -529,6 +529,8 @@ const handleImageError = (event) => {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255, 191, 0, 0.2);
   position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .project-container::before {
@@ -548,7 +550,7 @@ const handleImageError = (event) => {
 }
 
 .project-container:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.02) rotateY(5deg) rotateX(-3deg);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 191, 0, 0.2);
   border-color: rgba(255, 191, 0, 0.4);
   background: rgba(26, 26, 26, 0.85);

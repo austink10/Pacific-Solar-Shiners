@@ -417,6 +417,8 @@ const handleEscape = (e) => {
   box-shadow: 0 4px 15px rgba(255, 191, 0, 0.4), var(--glow-orange);
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .submit-btn::before {
@@ -436,7 +438,7 @@ const handleEscape = (e) => {
 
 .submit-btn:hover {
   background: linear-gradient(135deg, #FFD700 0%, var(--primary-color) 100%);
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-3px) scale(1.02) rotateX(5deg);
   box-shadow: 0 8px 25px rgba(255, 191, 0, 0.6), var(--glow-orange);
 }
 

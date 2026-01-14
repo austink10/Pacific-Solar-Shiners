@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <ParticleBackground />
     <header class="header">
       <div class="container">
         <div class="header-content">
@@ -79,6 +80,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import ParticleBackground from './components/ParticleBackground.vue'
 
 const isMobileMenuOpen = ref(false)
 
@@ -125,6 +127,35 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--bg-dark);
+  position: relative;
+}
+
+.app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 191, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 144, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(0, 79, 159, 0.03) 0%, transparent 50%);
+  animation: gradientMove 20s ease infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gradientMove {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
 }
 
 .container {
@@ -135,12 +166,14 @@ body {
 
 /* Header */
 .header {
-  background: var(--bg-dark);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: var(--shadow);
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 191, 0, 0.2);
 }
 
 .header-content {
@@ -229,14 +262,20 @@ body {
 /* Main */
 .main {
   flex: 1;
+  position: relative;
+  z-index: 2;
 }
 
 /* Footer */
 .footer {
-  background: #2A2A2A;
+  background: rgba(42, 42, 42, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: var(--white);
   padding: 3rem 0 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 191, 0, 0.2);
+  position: relative;
+  z-index: 2;
 }
 
 .footer-content {

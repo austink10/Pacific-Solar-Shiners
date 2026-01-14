@@ -7,6 +7,7 @@
       class="service-section"
       :class="{ 'fade-in': visibleSections[index], 'align-left': index % 2 === 0, 'align-right': index % 2 === 1 }"
       :style="{ backgroundImage: `url(${service.image})` }"
+      data-reveal
     >
       <div class="service-content">
         <h2 class="service-title">{{ service.title }}</h2>
@@ -85,6 +86,25 @@ const setupIntersectionObserver = () => {
 onMounted(async () => {
   await nextTick()
   setupIntersectionObserver()
+
+  // Scroll reveal animations
+  const revealElements = document.querySelectorAll('[data-reveal]')
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+          revealObserver.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    }
+  )
+
+  revealElements.forEach((el) => revealObserver.observe(el))
 })
 
 onUnmounted(() => {
@@ -109,13 +129,18 @@ onUnmounted(() => {
   background-repeat: no-repeat;
   background-color: var(--bg-dark);
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(30px) scale(0.95);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .service-section.fade-in {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+}
+
+.service-section.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .service-content {

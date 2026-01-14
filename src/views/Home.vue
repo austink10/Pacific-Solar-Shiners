@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <section class="hero" ref="heroSection">
+    <section class="hero" ref="heroSection" data-reveal>
       <div class="hero-slideshow" :class="{ paused: !isHeroVisible }">
         <div class="slideshow-track">
           <div 
@@ -26,7 +26,7 @@
       </div>
     </section>
 
-    <section class="services">
+    <section class="services" data-reveal>
       <div class="container">
         <h2 class="section-title">Our Services</h2>
         <div class="services-content">
@@ -87,6 +87,46 @@ const handleImageError = (event) => {
   event.target.style.display = 'none'
 }
 
+// Magnetic hover effect for CTA button
+const setupMagneticButton = () => {
+  const button = document.querySelector('.cta-button')
+  if (!button) return
+
+  let isHovering = false
+
+  const handleMouseEnter = () => {
+    isHovering = true
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isHovering) return
+    
+    const rect = button.getBoundingClientRect()
+    const x = e.clientX - rect.left - rect.width / 2
+    const y = e.clientY - rect.top - rect.height / 2
+    
+    const moveX = x * 0.1
+    const moveY = y * 0.1
+    
+    button.style.transform = `translate(${moveX}px, ${moveY - 3}px) scale(1.05) rotateX(5deg)`
+  }
+
+  const handleMouseLeave = () => {
+    isHovering = false
+    button.style.transform = 'translate(0, 0) scale(1) rotateX(0deg)'
+  }
+
+  button.addEventListener('mouseenter', handleMouseEnter)
+  button.addEventListener('mousemove', handleMouseMove)
+  button.addEventListener('mouseleave', handleMouseLeave)
+
+  return () => {
+    button.removeEventListener('mouseenter', handleMouseEnter)
+    button.removeEventListener('mousemove', handleMouseMove)
+    button.removeEventListener('mouseleave', handleMouseLeave)
+  }
+}
+
 // Intersection Observer to detect when hero section is in view
 onMounted(() => {
   if (heroSection.value) {
@@ -102,6 +142,37 @@ onMounted(() => {
     )
     observer.value.observe(heroSection.value)
   }
+
+  // Scroll reveal animations
+  const revealElements = document.querySelectorAll('[data-reveal]')
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+          revealObserver.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    }
+  )
+
+  revealElements.forEach((el) => revealObserver.observe(el))
+
+  // Reveal hero immediately on load
+  if (heroSection.value) {
+    setTimeout(() => {
+      heroSection.value.classList.add('revealed')
+    }, 100)
+  }
+
+  // Setup magnetic button
+  setTimeout(() => {
+    setupMagneticButton()
+  }, 100)
 })
 
 onUnmounted(() => {
@@ -125,6 +196,14 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hero.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-slideshow {
@@ -198,6 +277,16 @@ onUnmounted(() => {
 }
 
 .hero-logo {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.hero-logo:hover {
+  transform: translateY(-10px) scale(1.05);
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(255, 191, 0, 0.3));
+}
+
+.hero-logo {
   max-width: 500px;
   width: 100%;
   height: auto;
@@ -221,6 +310,8 @@ onUnmounted(() => {
   box-shadow: 0 4px 15px rgba(255, 191, 0, 0.4), var(--glow-orange);
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .cta-button::before {
@@ -240,8 +331,12 @@ onUnmounted(() => {
 
 .cta-button:hover {
   background: linear-gradient(135deg, #FFD700 0%, var(--primary-color) 100%);
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-3px) scale(1.05) rotateX(5deg);
   box-shadow: 0 8px 25px rgba(255, 191, 0, 0.6), var(--glow-orange);
+}
+
+.cta-button:active {
+  transform: translateY(-1px) scale(1.02) rotateX(2deg);
 }
 
 .cta-button:active {
@@ -273,6 +368,14 @@ onUnmounted(() => {
 .services {
   padding: 5rem 0;
   background: var(--bg-dark);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.services.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .services-content {
@@ -293,6 +396,8 @@ onUnmounted(() => {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .service-item::before {
@@ -312,7 +417,7 @@ onUnmounted(() => {
 }
 
 .service-item:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) rotateY(5deg) rotateX(-2deg);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 191, 0, 0.2);
   border-color: rgba(255, 191, 0, 0.4);
   background: rgba(26, 26, 26, 0.8);
