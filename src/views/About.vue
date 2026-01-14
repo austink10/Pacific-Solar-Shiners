@@ -10,7 +10,7 @@
     <section class="about-content">
       <div class="container">
         <div class="content-section">
-          <h2>Our Mission</h2>
+          <h2 class="heading-1">Our Mission</h2>
           <p>
             I founded and operate Pacific Solar Shiners as a recent graduate of San Diego State University with firsthand experience in the solar industry. While working with a national solar brokerage that partnered with leading solar companies, manufacturers, EPCs, and installers, one issue became consistently clear: many homeowners and businesses were not properly maintaining the cleanliness of their solar panels—or fully understanding the impact of neglecting them.
           </p>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="content-section">
-          <h2>Why Us</h2>
+          <h2 class="heading-2">Why Us</h2>
           <p>
             Before starting Pacific Solar Shiners, I trained and worked directly with some of the highest-rated solar panel cleaning companies in the San Diego area. That hands-on experience gave me a clear understanding of how solar panels should be cleaned—and where much of the industry falls short.
           </p>
@@ -87,8 +87,15 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientShift 3s ease infinite;
   background-size: 200% 200%;
+}
+
+.heading-1 {
+  animation: gradientShift 3s ease infinite;
+}
+
+.heading-2 {
+  animation: gradientShiftReverse 3s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -97,6 +104,15 @@
   }
   50% {
     background-position: 100% 50%;
+  }
+}
+
+@keyframes gradientShiftReverse {
+  0%, 100% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
   }
 }
 
