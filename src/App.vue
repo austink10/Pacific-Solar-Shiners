@@ -126,7 +126,14 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-dark);
+  background: 
+    radial-gradient(circle at 20% 30%, #1a1a1a 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, #0f0f0f 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, #0a0a0a 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, #000000 0%, transparent 40%),
+    radial-gradient(circle at 90% 20%, #121212 0%, transparent 45%),
+    linear-gradient(135deg, #0f0f0f 0%, #0a0a0a 50%, #000000 100%);
+  background-color: #000000;
   position: relative;
 }
 
@@ -138,23 +145,35 @@ body {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(255, 191, 0, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0, 144, 255, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(0, 79, 159, 0.03) 0%, transparent 50%);
-  animation: gradientMove 20s ease infinite;
+    radial-gradient(circle at 15% 25%, rgba(255, 191, 0, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(0, 144, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 45% 55%, rgba(255, 191, 0, 0.025) 0%, transparent 40%),
+    radial-gradient(circle at 75% 30%, rgba(0, 144, 255, 0.025) 0%, transparent 45%),
+    radial-gradient(circle at 25% 85%, rgba(0, 79, 159, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 60% 15%, rgba(255, 191, 0, 0.02) 0%, transparent 35%),
+    radial-gradient(circle at 90% 60%, rgba(0, 144, 255, 0.02) 0%, transparent 40%);
+  animation: gradientMove 25s ease infinite;
   pointer-events: none;
   z-index: 0;
+  mix-blend-mode: screen;
 }
 
 @keyframes gradientMove {
   0%, 100% {
     transform: translate(0, 0) scale(1);
+    opacity: 1;
   }
-  33% {
-    transform: translate(30px, -30px) scale(1.1);
+  25% {
+    transform: translate(20px, -15px) scale(1.05);
+    opacity: 0.95;
   }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
+  50% {
+    transform: translate(-15px, 20px) scale(0.98);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(10px, 10px) scale(1.02);
+    opacity: 0.97;
   }
 }
 
