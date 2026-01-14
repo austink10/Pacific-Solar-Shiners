@@ -277,13 +277,7 @@ onUnmounted(() => {
 }
 
 .hero-logo {
-  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-.hero-logo:hover {
-  transform: translateY(-10px) scale(1.05);
-  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(255, 191, 0, 0.3));
 }
 
 .hero-logo {
