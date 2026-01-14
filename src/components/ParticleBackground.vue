@@ -32,8 +32,8 @@ const initParticles = () => {
     particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      radius: Math.random() * 2 + 1.5,
-      baseRadius: Math.random() * 2 + 1.5,
+      radius: Math.random() * 2.5 + 2,
+      baseRadius: Math.random() * 2.5 + 2,
       vx: (Math.random() - 0.5) * 0.5,
       vy: (Math.random() - 0.5) * 0.5,
       iridescentColor: Math.random() > 0.5 ? '#FF6600' : '#00BFFF',
